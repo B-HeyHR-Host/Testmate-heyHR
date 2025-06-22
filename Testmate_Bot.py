@@ -28,7 +28,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 st.set_page_config(page_title="YOUR COMPANY - heyHR", page_icon="✨")
 # Display logo
 logo = Image.open("logo.png.PNG")
-st.image(logo, width=500)
+st.image(logo, width=300)
 st.title("YOUR COMPANY✨")
 st.markdown("Ask me anything about Your Companies policies, processes, or the employee handbook.")
 
