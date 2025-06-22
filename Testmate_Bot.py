@@ -25,12 +25,12 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 # ----------------------
 # 1. Page Setup
 # ----------------------
-st.set_page_config(page_title="Testmate - heyHR", page_icon="✨")
+st.set_page_config(page_title="YOUR COMPANY - heyHR", page_icon="✨")
 # Display logo
 logo = Image.open("logo.png.PNG")
-st.image(logo, width=250)
-st.title("Testmate - heyHR✨")
-st.markdown("Ask me anything about Testmates policies, processes, or the employee handbook.")
+st.image(logo, width=500)
+st.title("YOUR COMPANY✨")
+st.markdown("Ask me anything about Your Companies policies, processes, or the employee handbook.")
 
 # ----------------------
 # 2. Load Environment Variables
@@ -76,7 +76,7 @@ qa_chain = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=re
 # ----------------------
 # 5. Chat Interface
 # ----------------------
-user_question = st.text_input("💬 Enter your HR question:")
+user_question = st.text_input("💬 Input your question here..:")
 
 if user_question:
     with st.spinner("Thinking..."):
