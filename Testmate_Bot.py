@@ -28,7 +28,11 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 st.set_page_config(page_title="YOUR COMPANY - heyHR", page_icon="✨")
 # Display logo
 logo = Image.open("logo.png.PNG")
-st.image(logo, width=300)
+# Create 3 columns: left (1), center (2), right (1)
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col2:
+    st.image(logo, width=300)
 st.markdown("<h2 style='text-align: center;'>YOUR COMPANY ✨</h3>", unsafe_allow_html=True)
 st.markdown("Ask me anything about Your Companies policies, processes, or the employee handbook.")
 
