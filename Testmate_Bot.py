@@ -1,0 +1,93 @@
+import os
+import streamlit as st
+from PIL import Image
+from langchain.vectorstores import FAISS
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.llms import OpenAI
+from langchain.chains import RetrievalQA
+from langchain.document_loaders import TextLoader
+from langchain.text_splitter import CharacterTextSplitter
+
+# Load OpenAI API key from Streamlit secrets
+openai_api_key = st.secrets["OPENAI_API_KEY"]
+os.environ["OPENAI_API_KEY"] = openai_api_key
+
+hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    [data-testid="stToolbar"] {display: none !important;}
+    [data-testid="collapsedControl"] {display: none !important;}
+    </style>
+    """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+# ----------------------
+# 1. Page Setup
+# ----------------------
+st.set_page_config(page_title="Testmate - heyHR", page_icon="✨")
+# Display logo
+logo = Image.open("logo.png.PNG")
+st.image(logo, width=250)
+st.title("Testmate - heyHR✨")
+st.markdown("Ask me anything about Testmates policies, processes, or the employee handbook.")
+
+# ----------------------
+# 2. Load Environment Variables
+# ----------------------
+openai_api_key = st.secrets["OPENAI_API_KEY"]
+
+# ----------------------
+# 3. Load & Split Documents
+# ----------------------
+@st.cache_resource
+def load_docs():
+    doc_files = [
+        "Testmate-heyHR.txt",
+        "Testmate-heyHR1.txt",
+        "Testmate-heyHR2.txt"
+    ]
+
+    all_docs = []
+    for file in doc_files:
+        if os.path.exists(file):
+            loader = TextLoader(file)
+            docs = loader.load()
+            all_docs.extend(docs)
+        else:
+            st.warning(f"⚠️ Missing document: {file}")
+
+    splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+    split_docs = splitter.split_documents(all_docs)
+
+    embeddings = OpenAIEmbeddings(openai_api_key =os.getenv ("OPENAI_API_KEY"))
+    vectorstore = FAISS.from_documents(split_docs, embeddings)
+
+    return vectorstore
+
+# ----------------------
+# 4. Create QA Chain
+# ----------------------
+vectorstore = load_docs()
+retriever = vectorstore.as_retriever()
+llm = OpenAI(temperature=0, openai_api_key=openai_api_key)
+qa_chain = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever)
+
+# ----------------------
+# 5. Chat Interface
+# ----------------------
+user_question = st.text_input("💬 Enter your HR question:")
+
+if user_question:
+    with st.spinner("Thinking..."):
+        response = qa_chain.run(user_question)
+
+    # Check for empty or unclear response
+    if not response.strip() or any(phrase in response.lower() for phrase in [
+        "i don't know", "i'm not sure", "cannot find", "no information", "sorry"
+    ]):
+        st.warning("⚠️ Sorry, I can’t find that answer within the company information.")
+    else:
+        st.success("✅ Answer:")
+        st.write(response)
+
