@@ -7,6 +7,10 @@ from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
 from langchain.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
+# ----------------------
+# 1. Page Setup
+# ----------------------
+st.set_page_config(page_title="Your Company - heyHR", page_icon="✨")
 
 # Load OpenAI API key from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
@@ -22,10 +26,7 @@ hide_streamlit_style = """
     </style>
     """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-# ----------------------
-# 1. Page Setup
-# ----------------------
-st.set_page_config(page_title="Your Company - heyHR", page_icon="✨")
+
 # Display logo
 logo = Image.open("logo.png.PNG")
 # Create 3 columns: left (1), center (2), right (1)
