@@ -28,7 +28,7 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # Display logo
-logo = Image.open("logo.png.PNG")
+logo = Image.open("logo.png.png")
 # Create 3 columns: left (1), center (2), right (1)
 col1, col2, col3 = st.columns([1, 2, 1])
 
