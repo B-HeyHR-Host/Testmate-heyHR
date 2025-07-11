@@ -48,7 +48,7 @@ split_docs = splitter.split_documents(all_documents)
 
 # Load or create vector store
 embeddings = OpenAIEmbeddings()
-vectorstore = FAISS.load_local("vector_store", embeddings)
+vectorstore = FAISS.load_local("vector_store", embeddings, allow_dangerous_deserialization=True)
 vectorstore.add_documents(split_docs)
 vectorstore.save_local("vector_store")
 
