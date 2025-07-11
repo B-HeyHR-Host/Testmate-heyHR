@@ -15,6 +15,43 @@ st.set_page_config(page_title="Trident Group - heyHR", page_icon="✨")
 # Load OpenAI API key from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
 os.environ["OPENAI_API_KEY"] = openai_api_key
+# ----------------------------------
+# 2. Load and Embed All Documents
+# ----------------------------------
+from langchain.document_loaders import PyPDFLoader
+from langchain.vectorstores import FAISS
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+# Load all .txt and .pdf files in root folder
+def load_all_documents():
+    docs = []
+
+    # Load .txt files
+    txt_files = [f for f in os.listdir() if f.endswith(".txt")]
+    for file in txt_files:
+        loader = TextLoader(file, encoding="utf-8")
+        docs.extend(loader.load())
+
+    # Load .pdf files
+    pdf_files = [f for f in os.listdir() if f.endswith(".pdf")]
+    for file in pdf_files:
+        loader = PyPDFLoader(file)
+        docs.extend(loader.load())
+
+    return docs
+
+# Load and embed
+all_documents = load_all_documents()
+splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
+split_docs = splitter.split_documents(all_documents)
+
+# Load or create vector store
+embeddings = OpenAIEmbeddings()
+vectorstore = FAISS.load_local("vector_store", embeddings)
+vectorstore.add_documents(split_docs)
+vectorstore.save_local("vector_store")
+
 
 hide_streamlit_style = """
     <style>
