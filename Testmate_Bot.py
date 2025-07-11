@@ -30,14 +30,20 @@ def load_all_documents():
     # Load .txt files
     txt_files = [f for f in os.listdir() if f.endswith(".txt")]
     for file in txt_files:
-        loader = TextLoader(file, encoding="utf-8")
-        docs.extend(loader.load())
+        try:
+            loader = TextLoader(file, encoding="utf-8")
+            docs.extend(loader.load())
+        except Exception as e:
+            print(f"⚠️ Skipped TXT file: {file} — {e}")
 
     # Load .pdf files
     pdf_files = [f for f in os.listdir() if f.endswith(".pdf")]
     for file in pdf_files:
-        loader = PyPDFLoader(file)
-        docs.extend(loader.load())
+        try:
+            loader = PyPDFLoader(file)
+            docs.extend(loader.load())
+        except Exception as e:
+            print(f"⚠️ Skipped PDF file: {file} — {e}")
 
     return docs
 
