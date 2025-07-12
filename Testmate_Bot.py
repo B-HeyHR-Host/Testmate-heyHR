@@ -10,7 +10,7 @@ from langchain.text_splitter import CharacterTextSplitter
 # ----------------------
 # 1. Page Setup
 # ----------------------
-st.set_page_config(page_title="Trident Group - heyHR", page_icon="✨")
+st.set_page_config(page_title="Pharmathen - heyHR", page_icon="✨")
 
 # Load OpenAI API key from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
@@ -86,7 +86,7 @@ col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
     st.image(logo, width=300)
-st.markdown("<h2 style='text-align: center;'>heyHR+ Compliance</h3>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>Ask Pharmathen</h3>", unsafe_allow_html=True)
 st.markdown("Ask me anything about UK Employment Law, Statutory Entitlements, or Compliance Obligations.")
 
 # ----------------------
