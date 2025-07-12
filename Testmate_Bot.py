@@ -86,8 +86,8 @@ col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
     st.image(logo, width=300)
-st.markdown("<h2 style='text-align: center;'>Ask Pharmathen</h3>", unsafe_allow_html=True)
-st.markdown("Ask me anything about UK Employment Law, Statutory Entitlements, or Compliance Obligations.")
+st.markdown("<h2 style='text-align: center;'>Pharmathen</h3>", unsafe_allow_html=True)
+st.markdown("Please submit your HR queries below")
 
 # ----------------------
 # 2. Load Environment Variables
@@ -133,7 +133,7 @@ qa_chain = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=re
 # ----------------------
 # 5. Chat Interface
 # ----------------------
-user_question = st.text_input("💬 Ask Trident Group a question")
+user_question = st.text_input("💬 Insert your query here")
 
 if user_question:
     with st.spinner("Thinking..."):
@@ -143,7 +143,7 @@ if user_question:
     if not response.strip() or any(phrase in response.lower() for phrase in [
         "i don't know", "i'm not sure", "cannot find", "no information", "sorry"
     ]):
-        st.warning("⚠️ Sorry, I can’t find that answer within the Trident Group information.")
+        st.warning("⚠️ Sorry, I can’t find that answer within the Pharmathen company information.")
     else:
         st.success("✅ Answer:")
         st.write(response)
