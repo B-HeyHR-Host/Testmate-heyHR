@@ -87,7 +87,7 @@ col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.image(logo, width=300)
 st.markdown("<h2 style='text-align: center;'>Pharmathen</h3>", unsafe_allow_html=True)
-st.markdown("Please submit your HR queries below")
+st.markdown("You can ask us anything related to Pharmathen company policies and procedures")
 
 # ----------------------
 # 2. Load Environment Variables
