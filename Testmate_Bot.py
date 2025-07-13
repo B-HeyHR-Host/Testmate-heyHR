@@ -7,6 +7,14 @@ from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
 from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
+from langdetect import detect
+
+def detect_language(text):
+    try:
+        return detect(text)
+    except:
+        return "unknown"
+
 # ----------------------
 # 1. Page Setup
 # ----------------------
@@ -23,50 +31,71 @@ from langchain.vectorstores import FAISS
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-# Load all .txt and .pdf files in root folder
-def load_all_documents():
-    docs = []
+def load_language_documents():
+    english_docs = []
+    greek_docs = []
 
-    # Load .txt files
-    txt_files = [f for f in os.listdir() if f.endswith(".txt")]
-    for file in txt_files:
-        try:
-            loader = TextLoader(file, encoding="utf-8")
-            docs.extend(loader.load())
-        except Exception as e:
-            print(f"⚠️ Skipped TXT file: {file} — {e}")
+    # Folder paths
+    english_folder = "docs/en"
+    greek_folder = "docs/gr"
 
-    # Load .pdf files
-    pdf_files = [f for f in os.listdir() if f.endswith(".pdf")]
-    for file in pdf_files:
-        try:
-            loader = PyPDFLoader(file)
-            docs.extend(loader.load())
-        except Exception as e:
-            print(f"⚠️ Skipped PDF file: {file} — {e}")
+    # Load English .txt
+    for file in os.listdir(english_folder):
+        if file.endswith(".txt"):
+            try:
+                loader = TextLoader(os.path.join(english_folder, file), encoding="utf-8")
+                english_docs.extend(loader.load())
+            except Exception as e:
+                print(f"⚠️ Skipped EN file: {file} – {e}")
 
-    return docs
+    # Load Greek .txt
+    for file in os.listdir(greek_folder):
+        if file.endswith(".txt"):
+            try:
+                loader = TextLoader(os.path.join(greek_folder, file), encoding="utf-8")
+                greek_docs.extend(loader.load())
+            except Exception as e:
+                print(f"⚠️ Skipped GR file: {file} – {e}")
+
+    return english_docs, greek_docs
 
 # Load and embed
-all_documents = load_all_documents()
+english_docs, greek_docs = load_language_documents()
+all_documents = english_docs + greek_docs
+
 splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
 split_docs = splitter.split_documents(all_documents)
 
 # Load or create vector store
 embeddings = OpenAIEmbeddings()
+
 from pathlib import Path
 
-vectorstore_path = "vector_store"
+# Set vectorstore paths
+english_store_path = "vector_store_en"
+greek_store_path = "vector_store_gr"
 
-if Path(vectorstore_path).exists():
-    vectorstore = FAISS.load_local(
-        vectorstore_path,
-        embeddings,
+# Build or load English store
+if Path(english_store_path).exists():
+    english_store = FAISS.load_local(
+        english_store_path,
+        embedding,
         allow_dangerous_deserialization=True
     )
 else:
-    vectorstore = FAISS.from_documents(split_docs, embeddings)
-    vectorstore.save_local(vectorstore_path)
+    english_store = FAISS.from_documents(english_docs, embedding)
+    english_store.save_local(english_store_path)
+
+# Build or load Greek store
+if Path(greek_store_path).exists():
+    greek_store = FAISS.load_local(
+        greek_store_path,
+        embedding,
+        allow_dangerous_deserialization=True
+    )
+else:
+    greek_store = FAISS.from_documents(greek_docs, embedding)
+    greek_store.save_local(greek_store_path)
 
 hide_streamlit_style = """
     <style>
@@ -95,56 +124,32 @@ st.markdown("You can ask us anything related to Pharmathen company policies and 
 openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 # ----------------------
-# 3. Load & Split Documents
-# ----------------------
-@st.cache_resource
-def load_docs():
-    doc_files = [
-        "Testmate-heyHR.txt",
-        "Testmate-heyHR1.txt",
-        "Testmate-heyHR2.txt"
-    ]
-
-    all_docs = []
-    for file in doc_files:
-        if os.path.exists(file):
-            loader = TextLoader(file)
-            docs = loader.load()
-            all_docs.extend(docs)
-        else:
-            st.warning(f"⚠️ Missing document: {file}")
-
-    splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-    split_docs = splitter.split_documents(all_docs)
-
-    embeddings = OpenAIEmbeddings(openai_api_key =os.getenv ("OPENAI_API_KEY"))
-    vectorstore = FAISS.from_documents(split_docs, embeddings)
-
-    return vectorstore
-
-# ----------------------
-# 4. Create QA Chain
-# ----------------------
-vectorstore = load_docs()
-retriever = vectorstore.as_retriever()
-llm = OpenAI(temperature=0, openai_api_key=openai_api_key)
-qa_chain = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever)
-
-# ----------------------
 # 5. Chat Interface
-# ----------------------
-user_question = st.text_input("💬 Insert your query here")
+from langchain.chat_models import ChatOpenAI
+from langchain.schema import SystemMessage, HumanMessage
 
-if user_question:
+ if user_question:
     with st.spinner("Thinking..."):
-        response = qa_chain.run(user_question)
+        lang = detect_language(user_question)
 
-    # Check for empty or unclear response
-    if not response.strip() or any(phrase in response.lower() for phrase in [
-        "i don't know", "i'm not sure", "cannot find", "no information", "sorry"
-    ]):
-        st.warning("⚠️ Sorry, I can’t find that answer within the Pharmathen company information.")
-    else:
-        st.success("✅ Answer:")
-        st.write(response)
+        if lang == "el":
+            docs = greek_store.similarity_search(user_question)
+        else:
+            docs = english_store.similarity_search(user_question)
+
+        chat = ChatOpenAI()
+
+        response = chat.invoke([
+            SystemMessage(content="Answer in the same language as the question using only the provided documents."),
+            HumanMessage(content=user_question)
+        ]).content
+
+        # Check for empty or unclear response
+        if not response.strip() or any(phrase in response.lower() for phrase in [
+            "i don't know", "not sure", "cannot find", "no information"
+        ]):
+            st.warning("⚠️ Sorry, I can't find that answer within the Pharmathen company information.")
+        else:
+            st.success("✅ Answer:")
+            st.write(response)
 
