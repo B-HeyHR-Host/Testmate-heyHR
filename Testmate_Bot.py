@@ -2,7 +2,7 @@ import os
 import streamlit as st
 from PIL import Image
 from langchain.vectorstores import FAISS
-from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.embeddings import OpenAIEmbeddings
 from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
 from langchain_community.document_loaders import TextLoader
@@ -75,6 +75,8 @@ from pathlib import Path
 english_store_path = "vector_store_en"
 greek_store_path = "vector_store_gr"
 
+embedding = OpenAIEmbeddings()
+
 # Build or load English store
 if Path(english_store_path).exists():
     english_store = FAISS.load_local(
@@ -127,6 +129,8 @@ openai_api_key = st.secrets["OPENAI_API_KEY"]
 # 5. Chat Interface
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
+
+user_question = st.text_input("Ask me anything:")
 
 if user_question:
     with st.spinner("Thinking..."):
