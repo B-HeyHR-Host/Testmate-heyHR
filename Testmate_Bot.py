@@ -128,7 +128,7 @@ openai_api_key = st.secrets["OPENAI_API_KEY"]
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
 
- if user_question:
+if user_question:
     with st.spinner("Thinking..."):
         lang = detect_language(user_question)
 
