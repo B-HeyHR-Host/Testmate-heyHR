@@ -67,7 +67,7 @@ splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
 split_docs = splitter.split_documents(all_documents)
 
 # Load or create vector store
-embeddings = OpenAIEmbeddings()
+embedding = OpenAIEmbeddings()
 
 from pathlib import Path
 import shutil
