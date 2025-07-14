@@ -139,22 +139,23 @@ user_question = st.text_input("Ask me anything:")
 if user_question:
     with st.spinner("Thinking..."):
         lang = detect_language(user_question)
+        retriever = VectorStoreRetriever(
+            vectorstore=greek_store if lang == "el" else english_store
+        )
 
-        if lang == "el":
-            docs = greek_store.similarity_search(user_question)
-        else:
-            docs = english_store.similarity_search(user_question)
+        qa_chain = RetrievalQA.from_chain_type(
+            llm=ChatOpenAI(),
+            retriever=retriever,
+            return_source_documents=False
+        )
+
+        response = qa_chain.run(user_question)
+
+
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.vectorstores.base import VectorStoreRetriever
 
-retriever = VectorStoreRetriever(vectorstore=greek_store if lang == "el" else english_store)
-
-qa_chain = RetrievalQA.from_chain_type(
-    llm=ChatOpenAI(),
-    retriever=retriever,
-    return_source_documents=False  # you can make this True for debugging
-)
 
 response = qa_chain.run(user_question)
 
