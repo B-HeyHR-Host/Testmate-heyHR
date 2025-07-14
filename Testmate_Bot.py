@@ -77,27 +77,15 @@ greek_store_path = "vector_store_gr"
 
 embedding = OpenAIEmbeddings()
 
-# Build or load English store
-if Path(english_store_path).exists():
-    english_store = FAISS.load_local(
-        english_store_path,
-        embedding,
-        allow_dangerous_deserialization=True
-    )
-else:
-    english_store = FAISS.from_documents(english_docs, embedding)
-    english_store.save_local(english_store_path)
+english_store = FAISS.from_documents(english_docs, embedding)
+english_store.save_local(english_store_path)
 
-# Build or load Greek store
-if Path(greek_store_path).exists():
-    greek_store = FAISS.load_local(
-        greek_store_path,
-        embedding,
-        allow_dangerous_deserialization=True
-    )
-else:
-    greek_store = FAISS.from_documents(greek_docs, embedding)
-    greek_store.save_local(greek_store_path)
+
+
+greek_store = FAISS.from_documents(greek_docs, embedding)
+greek_store.save_local(greek_store_path)
+
+
 
 hide_streamlit_style = """
     <style>
