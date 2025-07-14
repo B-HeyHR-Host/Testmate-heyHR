@@ -148,16 +148,12 @@ if user_question:
             retriever=retriever,
             return_source_documents=False
         )
-
         response = qa_chain.run(user_question)
 
 
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.vectorstores.base import VectorStoreRetriever
-
-
-response = qa_chain.run(user_question)
 
         # Check for empty or unclear response
 if not response.strip() or any(phrase in response.lower() for phrase in [
