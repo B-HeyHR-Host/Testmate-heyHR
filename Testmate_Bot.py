@@ -5,6 +5,8 @@ from langchain.vectorstores import FAISS
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
+from langchain.chat_models import ChatOpenAI
+from langchain.vectorstores.base import VectorStoreRetriever
 from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langdetect import detect
@@ -139,6 +141,7 @@ user_question = st.text_input("Ask me anything:")
 if user_question:
     with st.spinner("Thinking..."):
         lang = detect_language(user_question)
+
         retriever = VectorStoreRetriever(
             vectorstore=greek_store if lang == "el" else english_store
         )
@@ -148,19 +151,16 @@ if user_question:
             retriever=retriever,
             return_source_documents=False
         )
-        response = qa_chain.run(user_question)
 
+        response = qa_chain.run(user_question)  # ✅ Make sure this is inside the `if user_question:` block
 
-from langchain.chains import RetrievalQA
-from langchain.chat_models import ChatOpenAI
-from langchain.vectorstores.base import VectorStoreRetriever
+    # ✅ Response exists here now
+    if not response.strip() or any(phrase in response.lower() for phrase in [
+        "i don't know", "not sure", "cannot find", "no information"
+    ]):
+        st.warning("⚠️ Sorry, I can't find that answer within the Pharmathen company information.")
+    else:
+        st.success("✅ Answer:")
+        st.write(response)
 
-        # Check for empty or unclear response
-if not response.strip() or any(phrase in response.lower() for phrase in [
-            "i don't know", "not sure", "cannot find", "no information"
-        ]):
-            st.warning("⚠️ Sorry, I can't find that answer within the Pharmathen company information.")
-else:
-            st.success("✅ Answer:")
-            st.write(response)
 
