@@ -62,6 +62,9 @@ def load_language_documents():
 # Load and embed
 english_docs, greek_docs = load_language_documents()
 all_documents = english_docs + greek_docs
+print(f"✅ English documents loaded: {len(english_docs)}")
+print(f"✅ Greek documents loaded: {len(greek_docs)}")
+
 
 splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
 split_docs = splitter.split_documents(all_documents)
@@ -91,6 +94,8 @@ english_store.save_local(english_store_path)
 
 greek_store = FAISS.from_documents(greek_docs, embedding)
 greek_store.save_local(greek_store_path)
+print("✅ English vector store saved to:", english_store_path)
+print("✅ Greek vector store saved to:", greek_store_path)
 
 
 
@@ -124,6 +129,10 @@ openai_api_key = st.secrets["OPENAI_API_KEY"]
 # 5. Chat Interface
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
+# Load vector stores before any questions are asked
+embedding = OpenAIEmbeddings()
+english_store = FAISS.load_local("vector_store_en", embedding)
+greek_store = FAISS.load_local("vector_store_gr", embedding)
 
 user_question = st.text_input("Ask me anything:")
 
@@ -135,20 +144,26 @@ if user_question:
             docs = greek_store.similarity_search(user_question)
         else:
             docs = english_store.similarity_search(user_question)
+from langchain.chains import RetrievalQA
+from langchain.chat_models import ChatOpenAI
+from langchain.vectorstores.base import VectorStoreRetriever
 
-        chat = ChatOpenAI()
+retriever = VectorStoreRetriever(vectorstore=greek_store if lang == "el" else english_store)
 
-        response = chat.invoke([
-            SystemMessage(content="Answer in the same language as the question using only the provided documents."),
-            HumanMessage(content=user_question)
-        ]).content
+qa_chain = RetrievalQA.from_chain_type(
+    llm=ChatOpenAI(),
+    retriever=retriever,
+    return_source_documents=False  # you can make this True for debugging
+)
+
+response = qa_chain.run(user_question)
 
         # Check for empty or unclear response
-        if not response.strip() or any(phrase in response.lower() for phrase in [
+if not response.strip() or any(phrase in response.lower() for phrase in [
             "i don't know", "not sure", "cannot find", "no information"
         ]):
             st.warning("⚠️ Sorry, I can't find that answer within the Pharmathen company information.")
-        else:
+else:
             st.success("✅ Answer:")
             st.write(response)
 
