@@ -131,8 +131,8 @@ from langchain.chat_models import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
 # Load vector stores before any questions are asked
 embedding = OpenAIEmbeddings()
-english_store = FAISS.load_local("vector_store_en", embedding)
-greek_store = FAISS.load_local("vector_store_gr", embedding)
+english_store = FAISS.load_local("vector_store_en", embedding, allow_dangerous_deserialization=True)
+greek_store = FAISS.load_local("vector_store_gr", embedding, allow_dangerous_deserialization=True)
 
 user_question = st.text_input("Ask me anything:")
 
