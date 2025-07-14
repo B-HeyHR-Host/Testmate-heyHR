@@ -70,17 +70,24 @@ split_docs = splitter.split_documents(all_documents)
 embeddings = OpenAIEmbeddings()
 
 from pathlib import Path
+import shutil
 
 # Set vectorstore paths
 english_store_path = "vector_store_en"
 greek_store_path = "vector_store_gr"
 
+# Delete existing vector stores to ensure fresh indexing
+if Path(english_store_path).exists():
+    shutil.rmtree(english_store_path)
+
+if Path(greek_store_path).exists():
+    shutil.rmtree(greek_store_path)
+
+# Rebuild and save new vector stores
 embedding = OpenAIEmbeddings()
 
 english_store = FAISS.from_documents(english_docs, embedding)
 english_store.save_local(english_store_path)
-
-
 
 greek_store = FAISS.from_documents(greek_docs, embedding)
 greek_store.save_local(greek_store_path)
