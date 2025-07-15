@@ -119,7 +119,7 @@ col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
     st.image(logo, width=300)
-st.markdown("<h2 style='text-align: center;'>heyHR</h3>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>heyHR Lex</h3>", unsafe_allow_html=True)
 st.markdown("Ask us anything related to the company policies and procedures")
 
 # ----------------------
