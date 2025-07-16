@@ -20,7 +20,7 @@ def detect_language(text):
 # ----------------------
 # 1. Page Setup
 # ----------------------
-st.set_page_config(page_title="Pharmathen - heyHR", page_icon="✨")
+st.set_page_config(page_title="heyHR Core Agent", page_icon="✨")
 
 # Load OpenAI API key from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
@@ -119,8 +119,8 @@ col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
     st.image(logo, width=300)
-st.markdown("<h2 style='text-align: center;'>Pharmathen</h3>", unsafe_allow_html=True)
-st.markdown("Ask us anything related to Pharmathen company policies and procedures")
+st.markdown("<h2 style='text-align: center;'>heyHR Core Agent</h3>", unsafe_allow_html=True)
+st.markdown("Ask us anything related to the company policies or procedures")
 
 # ----------------------
 # 2. Load Environment Variables
