@@ -76,7 +76,7 @@ print(f"✅ English documents loaded: {len(english_docs)}")
 print(f"✅ Greek documents loaded: {len(greek_docs)}")
 
 
-splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
+splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 split_docs = splitter.split_documents(all_documents)
 
 # Load or create vector store
