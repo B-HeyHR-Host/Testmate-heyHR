@@ -41,23 +41,31 @@ def load_language_documents():
     english_folder = "docs/en"
     greek_folder = "docs/gr"
 
-    # Load English .txt
+    # Load English .txt and .pdf
     for file in os.listdir(english_folder):
-        if file.endswith(".txt"):
-            try:
-                loader = TextLoader(os.path.join(english_folder, file), encoding="utf-8")
+        full_path = os.path.join(english_folder, file)
+        try:
+            if file.endswith(".txt"):
+                loader = TextLoader(full_path, encoding="utf-8")
                 english_docs.extend(loader.load())
-            except Exception as e:
-                print(f"⚠️ Skipped EN file: {file} – {e}")
+            elif file.endswith(".pdf"):
+                loader = PyPDFLoader(full_path)
+                english_docs.extend(loader.load())
+        except Exception as e:
+            print(f"⚠️ Skipped EN file: {file} ❌ {e}")
 
-    # Load Greek .txt
+    # Load Greek .txt and .pdf
     for file in os.listdir(greek_folder):
-        if file.endswith(".txt"):
-            try:
-                loader = TextLoader(os.path.join(greek_folder, file), encoding="utf-8")
+        full_path = os.path.join(greek_folder, file)
+        try:
+            if file.endswith(".txt"):
+                loader = TextLoader(full_path, encoding="utf-8")
                 greek_docs.extend(loader.load())
-            except Exception as e:
-                print(f"⚠️ Skipped GR file: {file} – {e}")
+            elif file.endswith(".pdf"):
+                loader = PyPDFLoader(full_path)
+                greek_docs.extend(loader.load())
+        except Exception as e:
+            print(f"⚠️ Skipped GR file: {file} ❌ {e}")
 
     return english_docs, greek_docs
 
