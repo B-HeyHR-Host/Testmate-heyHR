@@ -127,8 +127,8 @@ col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
     st.image(logo, width=300)
-st.markdown("<h2 style='text-align: center;'>heyHR Core Agent</h3>", unsafe_allow_html=True)
-st.markdown("Ask me anything relating to the company policies & procedures")
+st.markdown("<h2 style='text-align: center;'>heyHR Signet Agent</h3>", unsafe_allow_html=True)
+st.markdown("Ask me anything relating to suppliers and third-party contracts")
 
 # ----------------------
 # 2. Load Environment Variables
