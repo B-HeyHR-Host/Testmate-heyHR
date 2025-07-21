@@ -1,0 +1,29 @@
+HR System Supplier Agreement
+Supplier: TalentSync Solutions Ltd.
+Client: ExampleCorp Ltd.
+Contract Name: HR System Supply & Maintenance Agreement
+Parties
+This agreement is between TalentSync Solutions Ltd. (“Supplier”) and ExampleCorp Ltd. (“Client”).
+Service Description
+Supplier agrees to provide a cloud-based HRIS (Human Resource Information System), including modules for Core HR, Absence Management, and Reporting.
+Contract Term
+Start Date: 1 January 2025
+Initial Term: 24 months
+Auto-Renewal: Rolling 12-month periods unless terminated with notice.
+Payment Terms
+Implementation Fee: £25,000, payable within 14 days of contract signing.
+Monthly Subscription: £2,000 per month, invoiced on the 1st of each month, payment due within 30 days.
+Late Payment Fee: 5% of overdue amount per 14-day period.
+Exit & Termination
+Notice Period: 90 days written notice prior to contract renewal.
+Exit Support: Supplier will provide data export and offboarding support for 30 days post-termination.
+Early Exit Fee: 50% of remaining contract value if terminated early by Client.
+Data Protection
+Supplier must comply with UK GDPR and ensure secure storage, processing, and deletion of personal data. Data will be hosted in UK-based servers.
+Support & Maintenance
+Service Hours: Mon-Fri, 9am–5pm UK time.
+Response Time SLA: Critical issues within 4 hours; standard issues within 24 hours.
+Confidentiality
+Both parties agree to maintain confidentiality of proprietary and sensitive information during and after the contract term.
+Governing Law
+This agreement is governed by the laws of England and Wales.

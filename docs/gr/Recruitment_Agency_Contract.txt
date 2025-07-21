@@ -1,0 +1,31 @@
+Recruitment Agency Agreement
+Supplier: TalentReach Recruitment Ltd.
+Client: ExampleCorp Ltd.
+Contract Name: Recruitment Services Agreement
+Parties
+This agreement is between TalentReach Recruitment Ltd. (“Supplier”) and ExampleCorp Ltd. (“Client”).
+Service Description
+The Supplier will provide permanent and contract recruitment services for roles across the UK and EMEA region.
+Contract Term
+Start Date: 1 February 2025
+Term: 12 months, renewable annually by mutual agreement.
+Fees & Payment
+Permanent Placements: 18% of annual base salary.
+Contract Placements: £550 per day per contractor, inclusive of agency margin.
+Payment Terms: Invoices due within 30 days of candidate start date.
+Refund Policy:
+- 100% refund if candidate leaves within 2 weeks
+- 50% refund if within 4 weeks
+- No refund after 4 weeks
+Notice & Termination
+Termination Notice: 60 days written notice by either party.
+Early Termination Penalty: £5,000 if terminated within first 6 months without breach.
+Post-Term Restriction: Client agrees not to directly hire candidates introduced within 6 months of contract termination.
+Candidate Ownership
+Supplier retains ownership of introduced candidates for 12 months from initial submission.
+Compliance
+Supplier must comply with all UK employment laws and perform right-to-work checks on all candidates.
+Confidentiality
+All candidate information and client business practices must remain confidential during and after the agreement.
+Governing Law
+This agreement is governed by the laws of England and Wales.
