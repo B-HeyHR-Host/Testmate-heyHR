@@ -47,10 +47,28 @@ def load_language_documents():
         try:
             if file.endswith(".txt"):
                 loader = TextLoader(full_path, encoding="utf-8")
-                english_docs.extend(loader.load())
+                docs = loader.load()
+                english_docs.extend(docs)
+                print(f"✅ Loaded English .txt: {file}")
+                print("------ Preview ------")
+                if docs:
+                    print(docs[0].page_content[:200])
+                else:
+                    print("⚠️ Document is empty or failed to load")
+                print("---------------------")
+
             elif file.endswith(".pdf"):
                 loader = PyPDFLoader(full_path)
-                english_docs.extend(loader.load())
+                docs = loader.load()
+                english_docs.extend(docs)
+                print(f"✅ Loaded English .pdf: {file}")
+                print("------ Preview ------")
+                if docs:
+                    print(docs[0].page_content[:200])
+                else:
+                    print("⚠️ PDF is empty or failed to load")
+                print("---------------------")
+
         except Exception as e:
             print(f"⚠️ Skipped EN file: {file} ❌ {e}")
 
