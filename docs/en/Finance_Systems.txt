@@ -8,7 +8,15 @@ This guide provides step-by-step instructions for navigating key finance systems
 
 2. Key Systems Overvie
 
-SystemDescriptionFinTrakUsed for expenses, payroll data, user managementInvoicePortUsed for creating and approving customer/supplier invoicesBudgetViewUsed by managers to track and approve budget activity
+System
+Description
+FinTrak
+Used for expenses, payroll data, user management
+InvoicePort
+Used for creating and approving customer/supplier invoices
+BudgetView
+Used by managers to track and approve budget activity
+
 
 3. Common Tasks by Role
 
@@ -36,14 +44,14 @@ o Job Title & Department
 o Manager Assignment
 4. 
 5. Assign System Roles (e.g., Expense Submitter, Budget Viewer)
-6. Click “Save & Activate”
+6. Click ï¿½Save & Activateï¿½
 7. The user will receive an automated welcome email with login instructions
 
 
 
 
 
-Task: Approve Your Team’s Budget Requests
+Task: Approve Your Teamï¿½s Budget Requests
 
 
 System: BudgetView
@@ -61,7 +69,7 @@ Steps:
 o Request justification
 o Amount requested vs budget balance
 5. 
-6. Click “Approve” or “Reject with Comment”
+6. Click ï¿½Approveï¿½ or ï¿½Reject with Commentï¿½
 7. An email notification is sent to the requester
 
 
@@ -103,7 +111,7 @@ Steps:
 
 
 1. Log in to InvoicePort
-2. Click “Approvals” in the top navigation
+2. Click ï¿½Approvalsï¿½ in the top navigation
 3. Select an invoice to review
 4. Check:
 
@@ -111,14 +119,14 @@ o Description of goods/services
 o Supplier
 o PO Number (if applicable)
 5. 
-6. Click “Approve” or “Reject”
+6. Click ï¿½Approveï¿½ or ï¿½Rejectï¿½
 7. Approved invoices are added to the weekly payment run
 
 
 
 
 
-Task: Update a Supplier’s Bank Details
+Task: Update a Supplierï¿½s Bank Details
 
 
 System: InvoicePort
@@ -131,7 +139,7 @@ Steps:
 1. Log in to InvoicePort
 2. Go to Suppliers > Manage Suppliers
 3. Search and select the supplier
-4. Click “Edit Bank Details”
+4. Click ï¿½Edit Bank Detailsï¿½
 5. Enter:
 
 o New account name
@@ -190,7 +198,7 @@ o Bank details
 o Email for invoicing
 3. 
 4. Upload W-9 (US) or VAT certificate (UK/EU)
-5. Click “Create Supplier”
+5. Click ï¿½Create Supplierï¿½
 6. Await approval from Procurement or Legal
 
 
@@ -198,4 +206,19 @@ o Email for invoicing
 
 
 4. Quick Access FAQs
-QuestionSystemAnswer LocationHow do I set up a new user?FinTrakSection 3.1Where can I see pending approvals?BudgetView / InvoicePortSection 3.2 / 3.4Can I view past supplier payments?InvoicePortReporting > Payment HistoryHow do I assign manager access?FinTrakAdmin > User Permissions
+Question
+System
+Answer Location
+How do I set up a new user?
+FinTrak
+Section 3.1
+Where can I see pending approvals?
+BudgetView / InvoicePort
+Section 3.2 / 3.4
+Can I view past supplier payments?
+InvoicePort
+Reporting > Payment History
+How do I assign manager access?
+FinTrak
+Admin > User Permissions
+

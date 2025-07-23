@@ -86,6 +86,8 @@ def load_language_documents():
 
 # Load and embed
 english_docs, greek_docs = load_language_documents()
+print(f"📄 Total English documents loaded: {len(english_docs)}")
+
 
 all_documents = english_docs + greek_docs
 print(f"✅ English documents loaded: {len(english_docs)}")

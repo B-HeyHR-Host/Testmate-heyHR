@@ -38,7 +38,7 @@ Employees must submit expense claims within 30 calendar days of the expense bein
 
  Business-related
  Reasonable and necessary
- Pre-approved if above £100 or involving travel/accommodation
+ Pre-approved if above ï¿½100 or involving travel/accommodation
  
  Non-claimable items include:
 
@@ -91,7 +91,7 @@ Department heads are assigned annual budgets approved at the start of each fisca
 
 
 Capital Expenditure (CAPEX):
-Any spend over £10,000 must be submitted via a CAPEX approval form and signed off by Finance and the CEO.
+Any spend over ï¿½10,000 must be submitted via a CAPEX approval form and signed off by Finance and the CEO.
 
 
 
@@ -118,7 +118,7 @@ Follow-up begins at Day 31, with automated reminders and escalation to finance a
 3.5 Vendor Payment Policy
 
 
- Vendor invoices must be submitted to accounts@company.com
+ Vendor invoices must be submitted toï¿½accounts@company.com
  Payment runs are processed:
 
  Weekly on Fridays
