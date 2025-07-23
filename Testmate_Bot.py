@@ -88,10 +88,6 @@ def load_language_documents():
 # Load and embed
 english_docs, greek_docs = load_language_documents()
 
-# ❗ Prevent crash if no English documents were loaded
-if not english_docs:
-    raise ValueError("❌ No English documents were loaded. Please check your files in docs/en.")
-
 all_documents = english_docs + greek_docs
 print(f"✅ English documents loaded: {len(english_docs)}")
 print(f"✅ Greek documents loaded: {len(greek_docs)}")
