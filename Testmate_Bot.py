@@ -128,7 +128,7 @@ if greek_docs:
     print(f"✅ Greek vector store saved to: {greek_store_path}")
 else:
     print("❌ No Greek documents found. Skipping Greek vector store creation.")
-    
+
 print("✅ English vector store saved to:", english_store_path)
 print("✅ Greek vector store saved to:", greek_store_path)
 
@@ -166,7 +166,13 @@ from langchain.chat_models import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
 # Load vector stores before any questions are asked
 embedding = OpenAIEmbeddings()
-english_store = FAISS.load_local("vector_store_en", embedding, allow_dangerous_deserialization=True)
+from pathlib import Path
+
+if Path("vector_store_en/index.faiss").exists():
+    english_store = FAISS.load_local("vector_store_en", embedding, allow_dangerous_deserialization=True)
+else:
+    st.error("❌ English vector store not found. Please run the app with at least one English document to generate it.")
+    st.stop()
 greek_store = FAISS.load_local("vector_store_gr", embedding, allow_dangerous_deserialization=True)
 
 user_question = st.text_input("Input Query:")
