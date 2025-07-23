@@ -146,7 +146,7 @@ col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.image(logo, width=300)
 st.markdown("<h2 style='text-align: center;'>Fintrix.ai</h3>", unsafe_allow_html=True)
-st.markdown("Ask me anything related to the company's finance processes & policies")
+st.markdown("I am here to help with anything related to your finance operations - Processes, Policies, Systems, General queries")
 
 # ----------------------
 # 2. Load Environment Variables
@@ -162,7 +162,7 @@ embedding = OpenAIEmbeddings()
 english_store = FAISS.load_local("vector_store_en", embedding, allow_dangerous_deserialization=True)
 greek_store = FAISS.load_local("vector_store_gr", embedding, allow_dangerous_deserialization=True)
 
-user_question = st.text_input("Input:")
+user_question = st.text_input("Input Query:")
 
 if user_question:
     with st.spinner("Thinking..."):
