@@ -8,6 +8,7 @@ from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.vectorstores.base import VectorStoreRetriever
 from langchain_community.document_loaders import TextLoader, PyPDFLoader
+from langchain_core.documents import Document
 from langchain.text_splitter import CharacterTextSplitter
 from langdetect import detect
 
@@ -45,25 +46,24 @@ def load_language_documents():
         full_path = os.path.join(english_folder, file)
         try:
             if file.endswith(".txt"):
-                loader = TextLoader(full_path, encoding="utf-8")
-                docs = loader.load()
-                english_docs.extend(docs)
-                print(f"✅ Loaded English .txt: {file}")
-                if docs:
+                with open(full_path, "r", encoding="utf-8") as f:
+                    content = f.read()
+                if content.strip():
+                    english_docs.append(Document(page_content=content, metadata={"source": file}))
+                    print(f"✅ Loaded .txt file: {file}")
                     print("------ Preview ------")
-                    print(docs[0].page_content[:200])
+                    print(content[:200])
                 else:
-                    print("⚠️ Document is empty or failed to load")
+                    print(f"⚠️ File {file} is empty.")
             elif file.endswith(".pdf"):
                 loader = PyPDFLoader(full_path)
                 docs = loader.load()
                 english_docs.extend(docs)
-                print(f"✅ Loaded English .pdf: {file}")
+                print(f"✅ Loaded PDF: {file}")
                 if docs:
-                    print("------ Preview ------")
-                    print(docs[0].page_content[:200])
-                else:
-                    print("⚠️ PDF is empty or failed to load")
+                 print(docs[0].page_content[:200])
+            else:
+                print("⚠️ PDF is empty or failed to load.")
         except Exception as e:
             print(f"❌ Error loading {full_path}: {e}")
 
@@ -72,11 +72,14 @@ def load_language_documents():
         full_path = os.path.join(greek_folder, file)
         try:
             if file.endswith(".txt"):
-                loader = TextLoader(full_path, encoding="utf-8")
-                greek_docs.extend(loader.load())
+                with open(full_path, "r", encoding="utf-8") as f:
+                    content = f.read()
+                if content.strip():
+                    greek_docs.append(Document(page_content=content, metadata={"source": file}))
             elif file.endswith(".pdf"):
                 loader = PyPDFLoader(full_path)
-                greek_docs.extend(loader.load())
+                docs = loader.load()
+                greek_docs.extend(docs)
         except Exception as e:
             print(f"⚠️ Skipped GR file: {file} ❌ {e}")
 
