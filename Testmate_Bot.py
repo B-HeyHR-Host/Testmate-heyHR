@@ -37,7 +37,6 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 def load_language_documents():
     english_docs = []
     greek_docs = []
-
     english_folder = "docs/en"
     greek_folder = "docs/gr"
 
@@ -116,10 +115,10 @@ if Path(greek_store_path).exists():
 # Rebuild and save new vector stores
 embedding = OpenAIEmbeddings()
 
-english_store = FAISS.from_Documents(english_docs, embedding)
+english_store = FAISS.from_documents(english_docs, embedding)
 english_store.save_local(english_store_path)
 
-greek_store = FAISS.from_Documents(greek_docs, embedding)
+greek_store = FAISS.from_documents(greek_docs, embedding)
 greek_store.save_local(greek_store_path)
 print("✅ English vector store saved to:", english_store_path)
 print("✅ Greek vector store saved to:", greek_store_path)
