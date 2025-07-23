@@ -32,20 +32,20 @@ This policy applies to all employees, departments, and third-party contractors i
 3.1 Expense Reimbursement Policy
 
 
-* Employees must submit expense claims within 30 calendar days of the expense being incurred.
-* All claims must include original receipts or valid proof of purchase.
-* Expenses must be:
+Employees must submit expense claims within 30 calendar days of the expense being incurred.
+ All claims must include original receipts or valid proof of purchase.
+ Expenses must be:
 
-o Business-related
-o Reasonable and necessary
-o Pre-approved if above £100 or involving travel/accommodation
-* 
-* Non-claimable items include:
+ Business-related
+ Reasonable and necessary
+ Pre-approved if above £100 or involving travel/accommodation
+ 
+ Non-claimable items include:
 
-o Alcohol (unless for approved client entertainment)
-o Personal purchases
-o Fines, penalties, or late fees
-* 
+ Alcohol (unless for approved client entertainment)
+ Personal purchases
+ Fines, penalties, or late fees
+ 
 
 
 Reimbursement Timeline:
@@ -57,19 +57,19 @@ Approved expenses will be reimbursed in the next payroll cycle or within 10 work
 3.2 Payroll Policy
 
 
-* Payroll is processed monthly on the last working day of each month.
-* Cut-off for changes: 15th of the month
-* Employees are responsible for:
+Payroll is processed monthly on the last working day of each month.
+Cut-off for changes: 15th of the month
+ Employees are responsible for:
 
-o Ensuring bank details are accurate in the payroll system
-o Reporting discrepancies within 5 working days of payslip issuance
-* 
-* Payroll includes:
+ Ensuring bank details are accurate in the payroll system
+ Reporting discrepancies within 5 working days of payslip issuance
+ 
+ Payroll includes:
 
-o Base salary
-o Bonuses (if approved and submitted by cut-off)
-o Overtime (must be authorised)
-* 
+ Base salary
+ Bonuses (if approved and submitted by cut-off)
+ Overtime (must be authorised)
+ 
 
 
 Payslip Access:
@@ -81,13 +81,13 @@ Payslips are available via FinTrak under My Profile > Payslips
 3.3 Budget Management Policy
 
 
-* Department heads are assigned annual budgets approved at the start of each fiscal year.
-* Budget owners are responsible for:
+Department heads are assigned annual budgets approved at the start of each fiscal year.
+ Budget owners are responsible for:
 
-o Monitoring spend
-o Forecasting quarterly
-o Flagging potential overruns
-* 
+ Monitoring spend
+ Forecasting quarterly
+ Flagging potential overruns
+ 
 
 
 Capital Expenditure (CAPEX):
@@ -99,14 +99,14 @@ Any spend over £10,000 must be submitted via a CAPEX approval form and signed of
 3.4 Invoicing Policy
 
 
-* All customer invoices must be raised within 5 working days of service delivery.
-* All invoices must include:
+ All customer invoices must be raised within 5 working days of service delivery.
+ All invoices must include:
 
-o Invoice number
-o VAT details (if applicable)
-o PO reference (if required)
-o Payment terms (Net 30 by default)
-* 
+ Invoice number
+ VAT details (if applicable)
+ PO reference (if required)
+ Payment terms (Net 30 by default)
+ 
 
 
 Overdue Invoices:
@@ -118,13 +118,13 @@ Follow-up begins at Day 31, with automated reminders and escalation to finance a
 3.5 Vendor Payment Policy
 
 
-* Vendor invoices must be submitted to accounts@company.com
-* Payment runs are processed:
+ Vendor invoices must be submitted to accounts@company.com
+ Payment runs are processed:
 
-o Weekly on Fridays
-* 
-* Standard terms: Net 30
-* Early payment discounts may be considered for approved strategic suppliers
+ Weekly on Fridays
+
+ Standard terms: Net 30
+ Early payment discounts may be considered for approved strategic suppliers
 
 
 
@@ -133,22 +133,33 @@ o Weekly on Fridays
 3.6 Compliance & Audit Policy
 
 
-* The company is committed to complying with:
+ The company is committed to complying with:
 
-o UK Companies Act
-o HMRC requirements
-o GDPR (where applicable in financial recordkeeping)
-* 
-* Financial records must be retained for 7 years
-* All staff must cooperate with internal and external audit processes
-* Any suspected fraud or financial misconduct must be reported immediately to the CFO
+ UK Companies Act
+ HMRC requirements
+ GDPR (where applicable in financial recordkeeping)
+
+ Financial records must be retained for 7 years
+ All staff must cooperate with internal and external audit processes
+ Any suspected fraud or financial misconduct must be reported immediately to the CFO
 
 
 
 
 
 4. Roles and Responsibilities
-RoleResponsibilitiesEmployeesAdhere to all financial policies and proceduresBudget OwnersMonitor and manage departmental budgetsFinance TeamEnforce policies, review claims, and ensure compliancePayroll TeamProcess accurate and timely paymentsCFOPolicy owner and escalation point
+Role
+Responsibilities
+Employees
+Adhere to all financial policies and procedures
+Budget Owners
+Monitor and manage departmental budgets
+Finance Team
+Enforce policies, review claims, and ensure compliance
+Payroll Team
+Process accurate and timely payments
+CFO
+Policy owner and escalation point
 
 5. Policy Review
 
