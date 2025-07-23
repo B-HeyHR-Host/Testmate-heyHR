@@ -115,11 +115,20 @@ if Path(greek_store_path).exists():
 # Rebuild and save new vector stores
 embedding = OpenAIEmbeddings()
 
-english_store = FAISS.from_documents(english_docs, embedding)
-english_store.save_local(english_store_path)
+if english_docs:
+    english_store = FAISS.from_documents(english_docs, embedding)
+    english_store.save_local(english_store_path)
+    print(f"✅ English vector store saved to: {english_store_path}")
+else:
+    print("❌ No English documents found. Skipping English vector store creation.")
 
-greek_store = FAISS.from_documents(greek_docs, embedding)
-greek_store.save_local(greek_store_path)
+if greek_docs:
+    greek_store = FAISS.from_documents(greek_docs, embedding)
+    greek_store.save_local(greek_store_path)
+    print(f"✅ Greek vector store saved to: {greek_store_path}")
+else:
+    print("❌ No Greek documents found. Skipping Greek vector store creation.")
+    
 print("✅ English vector store saved to:", english_store_path)
 print("✅ Greek vector store saved to:", greek_store_path)
 
