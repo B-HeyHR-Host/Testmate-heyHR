@@ -45,7 +45,7 @@ def load_language_documents():
         full_path = os.path.join(english_folder, file)
         try:
             if file.endswith(".txt"):
-                with open(full_path, "r", encoding="utf-8") as f:
+                with open(full_path, "r", encoding="utf-8", errors="ignore") as f:
                     content = f.read()
                 if content.strip():
                     english_docs.append(Document(page_content=content, metadata={"source": file}))
