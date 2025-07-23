@@ -37,7 +37,6 @@ def load_language_documents():
     english_docs = []
     greek_docs = []
 
-    # Folder paths
     english_folder = "docs/en"
     greek_folder = "docs/gr"
 
@@ -50,27 +49,23 @@ def load_language_documents():
                 docs = loader.load()
                 english_docs.extend(docs)
                 print(f"✅ Loaded English .txt: {file}")
-                print("------ Preview ------")
                 if docs:
+                    print("------ Preview ------")
                     print(docs[0].page_content[:200])
                 else:
                     print("⚠️ Document is empty or failed to load")
-                print("---------------------")
-
             elif file.endswith(".pdf"):
                 loader = PyPDFLoader(full_path)
                 docs = loader.load()
                 english_docs.extend(docs)
                 print(f"✅ Loaded English .pdf: {file}")
-                print("------ Preview ------")
                 if docs:
+                    print("------ Preview ------")
                     print(docs[0].page_content[:200])
                 else:
                     print("⚠️ PDF is empty or failed to load")
-                print("---------------------")
-
         except Exception as e:
-            print(f"⚠️ Skipped EN file: {file} ❌ {e}")
+            print(f"❌ Error loading {full_path}: {e}")
 
     # Load Greek .txt and .pdf
     for file in os.listdir(greek_folder):
