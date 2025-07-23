@@ -20,7 +20,7 @@ def detect_language(text):
 # ----------------------
 # 1. Page Setup
 # ----------------------
-st.set_page_config(page_title="heyHR Core Agent", page_icon="✨")
+st.set_page_config(page_title="Fintrix.ai", page_icon="✨")
 
 # Load OpenAI API key from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
@@ -145,8 +145,8 @@ col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
     st.image(logo, width=300)
-st.markdown("<h2 style='text-align: center;'>heyHR Signet Agent</h3>", unsafe_allow_html=True)
-st.markdown("Ask me anything relating to suppliers and third-party contracts")
+st.markdown("<h2 style='text-align: center;'>Fintrix.ai</h3>", unsafe_allow_html=True)
+st.markdown("Ask me anything related to the company's finance processes & policies")
 
 # ----------------------
 # 2. Load Environment Variables
@@ -162,7 +162,7 @@ embedding = OpenAIEmbeddings()
 english_store = FAISS.load_local("vector_store_en", embedding, allow_dangerous_deserialization=True)
 greek_store = FAISS.load_local("vector_store_gr", embedding, allow_dangerous_deserialization=True)
 
-user_question = st.text_input("Ask me anything:")
+user_question = st.text_input("Input:")
 
 if user_question:
     with st.spinner("Thinking..."):
