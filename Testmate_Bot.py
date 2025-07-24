@@ -50,6 +50,7 @@ def load_language_documents():
                 if content.strip():
                     english_docs.append(Document(page_content=content, metadata={"source": file}))
                     print(f"✅ Loaded .txt file: {file}")
+                    print("✅ English document added:", file)
                     print("------ Preview ------")
                     print(content[:200])
                 else:
