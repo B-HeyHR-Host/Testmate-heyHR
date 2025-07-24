@@ -1,0 +1,110 @@
+
+Finance Policies Document
+Version: 1.0
+Last Updated: July 2025
+Owner: Finance Policy & Compliance Team
+
+1. Expense Policy
+
+1.1 Claim Eligibility
+- Expenses must be:
+  - Business-related
+  - Reasonable and approved in line with role
+  - Supported by itemised receipts
+
+1.2 Submission Deadline
+- All claims must be submitted within 30 days of the expense date.
+
+1.3 Payment Method
+- Employees can use:
+  - Company card (preferred)
+  - Personal card (reimbursed via payroll)
+
+1.4 Mileage Rate
+- Mileage is reimbursed at £0.45 per mile (HMRC rate)
+
+1.5 Non-Reimbursable Items
+- Alcohol (unless for approved client events)
+- Personal purchases
+- First-class travel (unless pre-approved)
+- Parking fines, penalties, or late fees
+
+1.6 Reimbursement Timeframe
+- Approved expenses are reimbursed within 10 working days
+
+2. Payroll Policy
+
+2.1 Payroll Schedule
+- Payday is the last working day of each month
+- Changes to salary or bank details must be submitted by the 15th of the month
+
+2.2 Payslip Access
+- Payslips are available via FinTrak > My Profile > Payslips
+
+2.3 Deductions
+- Deductions may include:
+  - PAYE Tax
+  - National Insurance
+  - Pension Contributions
+  - Student Loan Repayments (if applicable)
+
+3. Supplier Payment Policy
+
+3.1 Standard Payment Terms
+- All suppliers are paid on Net 30 terms (30 days from invoice date), unless otherwise agreed.
+
+3.2 Payment Runs
+- Payments are processed weekly on Fridays
+
+3.3 Early Payment Requests
+- Must be approved by the Finance Manager
+- Only considered for strategic vendors or urgent situations
+
+3.4 Changing Supplier Bank Details
+- All bank detail changes must go through a dual-approval process
+- Requires confirmation from the supplier and internal finance approver
+
+4. Invoice Policy
+
+4.1 Raising Customer Invoices
+- Invoices must be raised within 5 working days of service delivery
+- Must include:
+  - Invoice number
+  - Company VAT number (GB123456789)
+  - PO reference (if applicable)
+  - Payment terms
+
+4.2 Credit Notes
+- Can be issued for overcharges or returned goods
+- Must be requested through the InvoicePort system and approved by Finance
+
+5. Recruitment Fee Policy (3rd Parties)
+
+5.1 Placement Fees
+- Standard fee: 15% of candidate’s first-year salary
+- Includes all permanent roles
+
+5.2 Refund Clause
+- If the candidate leaves within 3 months, a 50% refund applies
+- No refund available for temporary placements
+
+6. Policy Enforcement & Exceptions
+- Any breach of this policy may result in rejection of reimbursement or delayed payment.
+- Exceptions must be approved in writing by the Head of Finance or CFO.
+
+7. FAQs
+
+Q: What’s the expense deadline?
+A: Submit within 30 days of expense date
+
+Q: What’s our VAT number?
+A: GB123456789
+
+Q: What’s the mileage rate?
+A: £0.45 per mile
+
+Q: Can I pay for a flight with my own card?
+A: Yes, with receipt and reason provided
+
+Q: When do suppliers get paid?
+A: Weekly, usually Fridays, with Net 30 terms
