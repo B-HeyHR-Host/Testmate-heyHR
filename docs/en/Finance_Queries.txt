@@ -13,13 +13,13 @@ Last Updated: July 2025
 1. General Information
 
 
-Finance Support Email:�finance@company.com
-Payroll Queries:�payroll@company.com
+Finance Support Email:finance@company.com
+Payroll Queries:payroll@company.com
 Systems Used:
 
-* FinTrak � Expense claims, payslips, user info
-* InvoicePort � Invoices, payments, supplier management
-* DocStore � Finance policies, forms, and guides
+* FinTrak Expense claims, payslips, user info
+* InvoicePort  Invoices, payments, supplier management
+* DocStore  Finance policies, forms, and guides
 
 
 
@@ -87,10 +87,10 @@ Supplier Queries
 
 
 Q: How do I request a new supplier to be added?
-A: Fill the New Supplier Request Form in DocStore ? Submit to�procurement@company.com.
+A: Fill the New Supplier Request Form in DocStore ? Submit to procurement@company.com.
 
-Q: Can I change a supplier�s bank details?
-A: Yes, if you�re a Finance Admin. InvoicePort ? Suppliers ? Edit Details ? Submit for dual approval.
+Q: Can I change a suppliers bank details?
+A: Yes, if youre a Finance Admin. InvoicePort ? Suppliers ? Edit Details ? Submit for dual approval.
 
 Q: What are our payment terms with [Supplier Name]?
 A: Most suppliers are Net 30, but check InvoicePort ? Supplier Details for exact terms.
@@ -101,14 +101,14 @@ A: Most suppliers are Net 30, but check InvoicePort ? Supplier Details for exact
 General Support Queries
 
 
-Q: What�s our VAT number?
+Q: Whats our VAT number?
 A: GB123456789
 
 Q: Where can I find the finance policy?
 A: DocStore ? Finance ? Policies ? Expense & Payment Policy
 
 Q: Who do I contact if I need a confirmation of employment or salary letter?
-A: Email�payroll@company.com�with the request details.
+A: Email payroll@company.com with the request details.
 
 Q: How do I know if a claim was approved?
 A: FinTrak ? My Expenses ? Status ? Approved / Rejected / Pending
@@ -119,11 +119,11 @@ A: FinTrak ? My Expenses ? Status ? Approved / Rejected / Pending
 3. Example Queries the Bot Should Handle
 
 
-* �Can I claim meals during business travel?�
-* �How do I download my March payslip?�
-* �When is the next payment run?�
-* �Has supplier X been paid for invoice Y?�
-* �Where can I find the expense policy?�
-* �What is the company�s VAT number?�
-* �Who approves supplier bank changes?�
+* Can I claim meals during business travel?
+* How do I download my March payslip?
+* When is the next payment run?
+* Has supplier X been paid for invoice Y?
+* Where can I find the expense policy?
+* What is the companys VAT number?
+* Who approves supplier bank changes?
 

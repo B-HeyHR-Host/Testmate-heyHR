@@ -1,7 +1,7 @@
 Finance Process Document
 
 
-Title: Finance Operations Guide � Expenses & Payroll
+Title: Finance Operations Guide  Expenses & Payroll
 Version: 1.0
 Last Updated: July 2025
 Owner: Finance Operations Team
@@ -55,14 +55,14 @@ o Submitted within 30 days of the transaction date
 
 
 
-2.4 Submitting an Expense Claim � Step-by-Step in FinTrak
+2.4 Submitting an Expense Claim  Step-by-Step in FinTrak
 
 
 
 Step 1: Log in to FinTrak
 
 
-* Go to:�https://fintrak.company.com
+* Go to:https://fintrak.company.com
 * Use your single sign-on (SSO) credentials
 
 
@@ -70,18 +70,18 @@ Step 1: Log in to FinTrak
 Step 2: Access Expense Module
 
 
-* From the homepage, click �Finance Tools�
-* Select �Submit Expense�
+* From the homepage, click Finance Tools
+* Select Submit Expense
 
 
 
 Step 3: Create a New Expense Report
 
 
-* Click �New Expense Report�
+* Click New Expense Report
 * Enter:
 
-o Report Title (e.g., �June Client Visit - Manchester�)
+o Report Title (e.g., June Client Visit - Manchester)
 o Expense Category (e.g., Travel, Meals, etc.)
 o Date Range of the expenses
 o Project Code (if applicable)
@@ -92,7 +92,7 @@ o Project Code (if applicable)
 Step 4: Add Expenses
 
 
-* Click �Add Expense�
+* Click Add Expense
 * For each expense:
 
 o Select the Expense Type
@@ -107,7 +107,7 @@ Step 5: Review & Submit
 
 
 * Review all entered expenses
-* Click �Submit for Approval�
+* Click Submit for Approval
 * Your line manager will receive an approval request
 
 
@@ -161,7 +161,7 @@ Common deductions include:
 
 If you have payroll-related questions:
 
-* Contact:�payroll@company.com
+* Contact:payroll@company.com
 * Response time: within 2 working days
 
 

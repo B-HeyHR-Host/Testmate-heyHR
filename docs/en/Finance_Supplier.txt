@@ -34,7 +34,7 @@ Notice Period:
 90 days before contract end date
 
 Early Termination Clause:
-Can terminate early with 60 days� notice and a termination fee equal to 2 months of service fees
+Can terminate early with 60 days notice and a termination fee equal to 2 months of service fees
 
 Payment Terms:
 Net 30 days from invoice date
@@ -69,7 +69,7 @@ Net 15 days
 10% discount applied for payments within 5 days
 
 Placement Fee:
-15% of candidate�s first-year salary
+15% of candidates first-year salary
 Refund clause: 50% rebate if candidate leaves within 3 months
 
 
@@ -86,7 +86,7 @@ Notice Period:
 60 days prior to contract expiry
 
 Early Termination Clause:
-Can exit early with 45 days� notice and payment of remaining committed minimum spend (�2,000/year)
+Can exit early with 45 days notice and payment of remaining committed minimum spend (2,000/year)
 
 Payment Terms:
 Net 30 days, late payments incur 2% interest per month
@@ -108,7 +108,7 @@ Notice Period:
 90 days prior to renewal date
 
 Early Termination Clause:
-Termination allowed with 30 days� notice and no fee if termination is for breach of SLA.
+Termination allowed with 30 days notice and no fee if termination is for breach of SLA.
 Otherwise, 3-month service fee payable.
 
 Payment Terms:
@@ -123,10 +123,10 @@ Provider must meet ISO 27001 and provide quarterly audit reports
 3. Additional Notes
 
 
-* All suppliers are subject to the company�s Code of Conduct for Vendors
+* All suppliers are subject to the companys Code of Conduct for Vendors
 * Contracts are reviewed annually by the Procurement & Legal Teams
 * Changes to terms must be approved by the CFO or Legal Counsel
-Contacts�
+Contacts
 Supplier
 Contact Person
 Email
