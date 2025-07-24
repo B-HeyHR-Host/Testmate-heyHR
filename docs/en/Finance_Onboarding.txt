@@ -1,7 +1,7 @@
 1. Welcome to Finance Operations
 
 
-Welcome to [Your Company Name]! This guide will help you understand the key finance processes and systems you�ll interact with as part of your role. Whether you need to submit expenses, understand your payslip, or raise a purchase request, this document covers everything you need to get started.
+Welcome to [Your Company Name]! This guide will help you understand the key finance processes and systems youll interact with as part of your role. Whether you need to submit expenses, understand your payslip, or raise a purchase request, this document covers everything you need to get started.
 
 
 
@@ -32,14 +32,14 @@ You will receive your login credentials during your first week.
 When to Use
 
 
-Use this when you�ve paid out of pocket for business-related costs such as travel, meals, or supplies.
+Use this when you've paid out of pocket for business-related costs such as travel, meals, or supplies.
 
 
 How to Submit (via FinTrak)
 
 
 1. Log in to FinTrak
-2. Go to �Finance Tools� > Submit Expense
+2. Go to Finance Tools > Submit Expense
 3. Create a New Expense Report
 4. Add individual expenses with:
 
@@ -80,7 +80,7 @@ What You Can Do in FinTrak
 
 * View and download payslips
 * Update bank account details
-* Report a discrepancy (contact�payroll@company.com)
+* Report a discrepancy (contactpayroll@company.com)
 
 
 
@@ -94,7 +94,7 @@ Raising a Customer Invoice:
 
 
 1. Log in to InvoicePort
-2. Select �Create New Invoice�
+2. Select Create New Invoice
 3. Add:
 
 o Client name & contact
@@ -129,7 +129,7 @@ Finance will send approved invoices to clients within 1 business day.
 7. Budget Awareness (for Budget Owners)
 
 
-If you�re responsible for a department or project budget:
+If youre responsible for a department or project budget:
 
 * Access BudgetView to monitor spend vs allocation
 * Submit quarterly forecasts to Finance
@@ -161,14 +161,14 @@ financebp@company.com
 
 
 Q: What if my expense is rejected?
-You�ll receive a notification in FinTrak. Review the comments, correct the issue, and resubmit.
+Youll receive a notification in FinTrak. Review the comments, correct the issue, and resubmit.
 
 Q: When will I be reimbursed?
 Once your expense is approved, reimbursement is made within 10 working days.
 
 Q: Can I claim mileage?
-Yes, at the standard HMRC rate. Use the �Mileage� category and enter your trip details.
+Yes, at the standard HMRC rate. Use the Mileage category and enter your trip details.
 
-Q: What�s the deadline to raise invoices?
+Q: Whats the deadline to raise invoices?
 Within 5 working days of the service being delivered.
 

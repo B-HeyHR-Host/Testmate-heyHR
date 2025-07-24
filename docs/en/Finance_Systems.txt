@@ -44,14 +44,14 @@ o Job Title & Department
 o Manager Assignment
 4. 
 5. Assign System Roles (e.g., Expense Submitter, Budget Viewer)
-6. Click �Save & Activate�
+6. Click Save & Activate
 7. The user will receive an automated welcome email with login instructions
 
 
 
 
 
-Task: Approve Your Team�s Budget Requests
+Task: Approve Your Teams Budget Requests
 
 
 System: BudgetView
@@ -69,7 +69,7 @@ Steps:
 o Request justification
 o Amount requested vs budget balance
 5. 
-6. Click �Approve� or �Reject with Comment�
+6. Click Approve or Reject with Comment
 7. An email notification is sent to the requester
 
 
@@ -111,7 +111,7 @@ Steps:
 
 
 1. Log in to InvoicePort
-2. Click �Approvals� in the top navigation
+2. Click Approvals in the top navigation
 3. Select an invoice to review
 4. Check:
 
@@ -119,14 +119,14 @@ o Description of goods/services
 o Supplier
 o PO Number (if applicable)
 5. 
-6. Click �Approve� or �Reject�
+6. Click Approve or Reject
 7. Approved invoices are added to the weekly payment run
 
 
 
 
 
-Task: Update a Supplier�s Bank Details
+Task: Update a Suppliers Bank Details
 
 
 System: InvoicePort
@@ -139,7 +139,7 @@ Steps:
 1. Log in to InvoicePort
 2. Go to Suppliers > Manage Suppliers
 3. Search and select the supplier
-4. Click �Edit Bank Details�
+4. Click Edit Bank Details
 5. Enter:
 
 o New account name
@@ -198,7 +198,7 @@ o Bank details
 o Email for invoicing
 3. 
 4. Upload W-9 (US) or VAT certificate (UK/EU)
-5. Click �Create Supplier�
+5. Click Create Supplier
 6. Await approval from Procurement or Legal
 
 
