@@ -21,7 +21,7 @@ def detect_language(text):
 # ----------------------
 # 1. Page Setup
 # ----------------------
-st.set_page_config(page_title="Fintrix.ai", page_icon="✨")
+st.set_page_config(page_title="Symphony.is", page_icon="✨")
 
 # Load OpenAI API key from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
@@ -51,6 +51,7 @@ def load_language_documents():
                     english_docs.append(Document(page_content=content, metadata={"source": file}))
                     print(f"✅ Loaded .txt file: {file}")
                     print("✅ English document added:", file)
+
                     print("------ Preview ------")
                     print(content[:200])
                 else:
@@ -155,8 +156,8 @@ col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
     st.image(logo, width=300)
-st.markdown("<h2 style='text-align: center;'>Fintrix.ai</h3>", unsafe_allow_html=True)
-st.markdown("I am here to help with anything related to your finance operations - Processes, Policies, Systems, General queries")
+st.markdown("<h2 style='text-align: center;'>Symphony.is</h3>", unsafe_allow_html=True)
+st.markdown("I am here to help with your HR queries")
 
 # ----------------------
 # 2. Load Environment Variables
@@ -200,7 +201,7 @@ if user_question:
     if not response.strip() or any(phrase in response.lower() for phrase in [
         "i don't know", "not sure", "cannot find", "no information"
     ]):
-        st.warning("⚠️ Sorry, I can't find that answer within the Pharmathen company information.")
+        st.warning("⚠️ Sorry, I can't find that answer within the Symphony.is company information.")
     else:
         st.success("✅ Answer:")
         st.write(response)
