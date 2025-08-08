@@ -1,0 +1,69 @@
+Demo Desk Company overview 
+The current year is 2025.
+
+
+Company employee headcount:
+850 employees in total 
+Spain = 240 employees
+UK = 310 employees
+Greece = 85 employees
+France = 120 employees
+Germany = 72 employees
+Netherlands = 23 employees
+
+Total gender split of employees:
+Female = 51% & Male = 49%
+
+Spain = 61% male & 39% female
+UK = 55% female & 45% male
+Greece = 70% male & 30% female
+France = 70% female & 30% male
+Germany = 62% female & 38% male
+Netherlands = 72% female & 28% male
+
+Most common reasons for leaving in the last 2 years:
+Career progression = 50%
+Work-life balance = 35%
+Management Issue = 10%
+Personal Reasons = 2.5%
+Other = 2.5%
+
+Most common reasons for leaving in 2025:
+Career progression = 55%
+Work-life balance = 30%
+Management Issue = 7%
+Personal Reasons = 5%
+Other = 3%
+
+The average length of service in 2025:
+Sales team - 1.8 years
+Finance team - 1.5 years
+IT - 2.4 years
+HR - 3.5 years
+Project Management - 1.6 years
+
+Attrition:
+In the last 12 months, attrition rates have been:
+Total: 19%
+Sales team - 40%
+Finance team - 22%
+IT - 15%
+HR - 9%
+Project Management - 37%
+
+Attrition by location:
+Spain = 24%
+UK = 30%
+Greece = 12%
+France = 14%
+Germany = 5%
+Netherlands = 1%
+
+
+
+
+
+
+
+
+
