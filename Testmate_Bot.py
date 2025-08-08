@@ -21,7 +21,7 @@ def detect_language(text):
 # ----------------------
 # 1. Page Setup
 # ----------------------
-st.set_page_config(page_title="Symphony.is", page_icon="✨")
+st.set_page_config(page_title="heyHR AI", page_icon="✨")
 
 # Load OpenAI API key from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
@@ -156,8 +156,8 @@ col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
     st.image(logo, width=300)
-st.markdown("<h2 style='text-align: center;'>Symphony.is</h3>", unsafe_allow_html=True)
-st.markdown("I am here to help with your HR queries")
+st.markdown("<h2 style='text-align: center;'>Demo Desk</h3>", unsafe_allow_html=True)
+st.markdown("I am here to help with your queries")
 
 # ----------------------
 # 2. Load Environment Variables
@@ -182,7 +182,7 @@ greek_store = FAISS.load_local("vector_store_gr", embedding, allow_dangerous_des
 user_question = st.text_input("Input Query:")
 
 if user_question:
-    with st.spinner("Thinking..."):
+    with st.spinner("Analysing..."):
         lang = detect_language(user_question)
 
         retriever = VectorStoreRetriever(
