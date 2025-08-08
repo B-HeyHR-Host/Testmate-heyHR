@@ -1,0 +1,15 @@
+Demo Desk Company overview 
+The current year is 2025.
+
+
+Minimum to maximum salary brackets per location:
+Spain (Software developer) the lowest earning developer is at €65,000 and the highest earning developer is at €125,000
+
+Demo Desk Average salary:
+The average salary for a sales manager in the London office is £55,000
+The average salary for a Data Scientist at Demo Desk is £75,000 
+
+External salary data:
+The average market salary for a Sales manager in London is currently £65,000 based on data extracted from LinkedIn and Glassdoor
+
+The average market salary for a Software Developer in Germany is currently The average market salary for a Sales manager in London is currently €65,000 based on data extracted from LinkedIn and Glassdoor
