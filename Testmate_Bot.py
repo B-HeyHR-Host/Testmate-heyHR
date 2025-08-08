@@ -155,7 +155,7 @@ logo = Image.open("logo.png.png")
 col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
-    st.image(logo, width=400)
+    st.image(logo, width=500)
 st.markdown("<h2 style='text-align: center;'></h3>", unsafe_allow_html=True)
 st.markdown("I am here to help with your queries")
 
