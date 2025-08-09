@@ -209,32 +209,39 @@ if user_question:
             return_source_documents=False
         )
 
-        response = qa_chain.run(user_question)  # Ensure response is defined here
+        response = qa_chain.run(user_question)  # Get answer
 
-        # CSV generation (no extra st.write here)
-        try:
-            if response and isinstance(response, str):
-                if "," in response:
-                    data = [row.split(",") for row in response.strip().split("\n")]
-                    if len(data) > 1 and len(data[0]) > 1:
-                        df = pd.DataFrame(data[1:], columns=data[0])
+        # Show the response only once, in the green box
+        if not response.strip() or any(p in response.lower() for p in ["i don't know", "not sure", "cannot find", "no information"]):
+            st.warning("⚠ Sorry, I can't find that answer within the Symphony.is company information.")
+        else:
+            st.success("✅ Answer:")
+            st.write(response)
+
+            # CSV generation (inside the green box)
+            try:
+                if response and isinstance(response, str):
+                    if "," in response:
+                        data = [row.split(",") for row in response.strip().split("\n")]
+                        if len(data) > 1 and len(data[0]) > 1:
+                            df = pd.DataFrame(data[1:], columns=data[0])
+                        else:
+                            df = pd.DataFrame(data, columns=["Result"])
                     else:
-                        df = pd.DataFrame(data, columns=["Result"])
-                else:
-                    df = pd.DataFrame({"Result": [response]})
+                        df = pd.DataFrame({"Result": [response]})
 
-                csv_data = df.to_csv(index=False).encode("utf-8")
+                    csv_data = df.to_csv(index=False).encode("utf-8")
 
-                st.download_button(
-                    label="📥 Download as CSV",
-                    data=csv_data,
-                    file_name="query_results.csv",
-                    mime="text/csv",
-                    key=f"download_button_{user_question}"
-                )
+                    st.download_button(
+                        label="📥 Download as CSV",
+                        data=csv_data,
+                        file_name="query_results.csv",
+                        mime="text/csv",
+                        key=f"download_button_{user_question}"
+                    )
 
-        except Exception as e:
-            st.error(f"⚠ Could not generate CSV: {e}")
+            except Exception as e:
+                st.error(f"⚠ Could not generate CSV: {e}")
 
         # Show the response only once, in the green box
         if not response.strip() or any(p in response.lower() for p in ["i don't know", "not sure", "cannot find", "no information"]):
