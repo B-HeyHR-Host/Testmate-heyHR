@@ -195,29 +195,50 @@ if user_question:
             return_source_documents=False
         )
 
+        if user_question:
+         with st.spinner("Analysing..."):
+          lang = detect_language(user_question)
+        retriever = VectorStoreRetriever(
+            vectorstore=greek_store if lang == "el" else english_store
+        )
+
+        qa_chain = RetrievalQA.from_chain_type(
+            llm=ChatOpenAI(),
+            retriever=retriever,
+            return_source_documents=False
+        )
+
         response = qa_chain.run(user_question)  # Ensure response is defined here
+
+        # Debugging - Display the response to check if it's coming through correctly
+        st.write(f"Response: {response}")  # This will print the response value for debugging
 
         # Now generate the CSV based on the response
         try:
-            # Example: Assume the response is tabular-like text or key-value pairs
-            if isinstance(response, str) and "," in response:
-                # Split into lines and columns
-                data = [row.split(",") for row in response.strip().split("\n")]
-                df = pd.DataFrame(data[1:], columns=data[0])  # assumes first row is header
-            elif isinstance(response, list):
-                df = pd.DataFrame(response)
-            else:
-                # fallback: single column CSV
-                df = pd.DataFrame({"Result": [response]})
-            
-            csv_data = df.to_csv(index=False).encode('utf-8')
+            # Check if response is not empty and valid
+            if response and isinstance(response, str):
+                # If response is comma-separated values (like tabular data)
+                if "," in response:
+                    # Split into lines and columns
+                    data = [row.split(",") for row in response.strip().split("\n")]
+                    df = pd.DataFrame(data[1:], columns=data[0])  # assuming first row as headers
+                else:
+                    # If the response is just a string or non-tabular
+                    df = pd.DataFrame({"Result": [response]})
+                
+                # Convert DataFrame to CSV
+                csv_data = df.to_csv(index=False).encode('utf-8')
 
-            st.download_button(
-                label="📥 Download as CSV",
-                data=csv_data,
-                file_name="query_results.csv",
-                mime="text/csv"
-            )
+                # Provide a button for download
+                st.download_button(
+                    label="📥 Download as CSV",
+                    data=csv_data,
+                    file_name="query_results.csv",
+                    mime="text/csv"
+                )
+
+            else:
+                st.error("⚠ Invalid response for CSV generation.")
         
         except Exception as e:
             st.error(f"⚠ Could not generate CSV: {e}")
