@@ -212,7 +212,7 @@ if user_question:
         response = qa_chain.run(user_question)  # Ensure response is defined here
 
         # Debugging - Display the response to check if it's coming through correctly
-        st.write(f"Response: {response}")  # This will print the response value for debugging
+        st.write(f"Response: {response}")  # Optional debug to show the response in your app
 
         # Only attempt to generate CSV if the response is valid
         try:
@@ -242,10 +242,7 @@ if user_question:
                     mime="text/csv",
                     key=f"download_button_{user_question}"  # Unique key for the download button
                 )
-
-            else:
-                st.error("⚠ Invalid response for CSV generation.")
-
+                
         except Exception as e:
             st.error(f"⚠ Could not generate CSV: {e}")
 
@@ -254,7 +251,7 @@ if user_question:
             st.warning("⚠ Sorry, I can't find that answer within the Symphony.is company information.")
         else:
             st.success("✅ Answer:")
-            st.write(response)
+            st.write(response)  # Display the response only once here
 # Convert response to CSV if needed
 try:
     # Example: Assume the response is tabular-like text or key-value pairs
