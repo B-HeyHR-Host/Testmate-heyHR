@@ -1,5 +1,6 @@
 import os
 import streamlit as st
+import pandas as pd
 from PIL import Image
 from langchain.vectorstores import FAISS
 from langchain.embeddings import OpenAIEmbeddings
@@ -196,7 +197,29 @@ if user_question:
         )
 
         response = qa_chain.run(user_question)  # ✅ Make sure this is inside the `if user_question:` block
+# Convert response to CSV if needed
+try:
+    # Example: Assume the response is tabular-like text or key-value pairs
+    if isinstance(response, str) and "," in response:
+        # Split into lines and columns
+        data = [row.split(",") for row in response.strip().split("\n")]
+        df = pd.DataFrame(data[1:], columns=data[0])  # assumes first row is header
+    elif isinstance(response, list):
+        df = pd.DataFrame(response)
+    else:
+        # fallback: single column CSV
+        df = pd.DataFrame({"Result": [response]})
+    
+    csv_data = df.to_csv(index=False).encode('utf-8')
 
+    st.download_button(
+        label="📥 Download as CSV",
+        data=csv_data,
+        file_name="query_results.csv",
+        mime="text/csv"
+    )
+except Exception as e:
+    st.error(f"⚠ Could not generate CSV: {e}")
     # ✅ Response exists here now
     if not response.strip() or any(phrase in response.lower() for phrase in [
         "i don't know", "not sure", "cannot find", "no information"
