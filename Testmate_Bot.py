@@ -224,25 +224,29 @@ try:
     if response and isinstance(response, str):
         import re
 
-        # Split response into lines
+        # Split by new lines
         lines = response.split("\n")
-
         rows = []
+
         for line in lines:
-            # Match patterns like "Spain: 240 employees" or "Spain = 240 employees"
-            match = re.match(r"([A-Za-z\s]+)[=:]\s*(\d+)\s*employees?", line.strip(), re.IGNORECASE)
+            # Remove bullet points or dashes
+            line = line.strip("- ").strip()
+
+            # Match patterns like: Spain: 240 employees  OR  Spain = 240 employees
+            match = re.match(r"([A-Za-z\s]+)[:=]\s*(\d+)\s*employees?", line, re.IGNORECASE)
             if match:
-                location, employees = match.groups()
-                rows.append([location.strip(), employees.strip()])
+                country, employees = match.groups()
+                rows.append([country.strip(), employees.strip()])
 
         if rows:
-            # Create DataFrame with one row per location
-            df = pd.DataFrame(rows, columns=["Location", "Employees"])
+            # Create DataFrame for CSV
+            df = pd.DataFrame(rows, columns=["Country", "Employees"])
         else:
-            # Fallback if no matches
+            # Fallback if no matches found
             df = pd.DataFrame({"Result": [response]})
 
         csv_data = df.to_csv(index=False).encode("utf-8")
+
         st.download_button(
             label="📥 Download as CSV",
             data=csv_data,
