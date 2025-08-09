@@ -219,26 +219,36 @@ if user_question:
             st.write(response)
 
             # CSV generation (inside the green box)
-            try:
-                if response and isinstance(response, str):
-                    if "," in response:
-                        data = [row.split(",") for row in response.strip().split("\n")]
-                        if len(data) > 1 and len(data[0]) > 1:
-                            df = pd.DataFrame(data[1:], columns=data[0])
-                        else:
-                            df = pd.DataFrame(data, columns=["Result"])
-                    else:
-                        df = pd.DataFrame({"Result": [response]})
+            
+try:
+    if response and isinstance(response, str):
+        import re
 
-                    csv_data = df.to_csv(index=False).encode("utf-8")
+        # Split response into lines
+        lines = response.split("\n")
 
-                    st.download_button(
-                        label="📥 Download as CSV",
-                        data=csv_data,
-                        file_name="query_results.csv",
-                        mime="text/csv",
-                        key=f"download_button_{user_question}"
-                    )
+        rows = []
+        for line in lines:
+            # Match patterns like "Spain: 240 employees" or "Spain = 240 employees"
+            match = re.match(r"([A-Za-z\s]+)[=:]\s*(\d+)\s*employees?", line.strip(), re.IGNORECASE)
+            if match:
+                location, employees = match.groups()
+                rows.append([location.strip(), employees.strip()])
 
-            except Exception as e:
-                st.error(f"⚠ Could not generate CSV: {e}")
+        if rows:
+            # Create DataFrame with one row per location
+            df = pd.DataFrame(rows, columns=["Location", "Employees"])
+        else:
+            # Fallback if no matches
+            df = pd.DataFrame({"Result": [response]})
+
+        csv_data = df.to_csv(index=False).encode("utf-8")
+        st.download_button(
+            label="📥 Download as CSV",
+            data=csv_data,
+            file_name="query_results.csv",
+            mime="text/csv",
+            key=f"download_button_{user_question}"
+        )
+except Exception as e:
+    st.error(f"⚠ Could not generate CSV: {e}")
