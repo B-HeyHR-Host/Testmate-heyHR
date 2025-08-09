@@ -272,11 +272,12 @@ try:
     csv_data = df.to_csv(index=False).encode('utf-8')
 
     st.download_button(
-        label="📥 Download as CSV",
-        data=csv_data,
-        file_name="query_results.csv",
-        mime="text/csv"
-    )
+    label="📥 Download as CSV",
+    data=csv_data,
+    file_name="query_results.csv",
+    mime="text/csv",
+    key="download_button_1"  # Add a unique key for the button
+)
 except Exception as e:
     st.error(f"⚠ Could not generate CSV: {e}")
 
