@@ -181,6 +181,7 @@ else:
 greek_store = FAISS.load_local("vector_store_gr", embedding, allow_dangerous_deserialization=True)
 
 user_question = st.text_input("Input Query:")
+response = ""   # pre-declare so it's always defined
 
 if user_question:
     with st.spinner("Analysing..."):
