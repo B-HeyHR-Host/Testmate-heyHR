@@ -197,6 +197,15 @@ if user_question:
         )
 
         response = qa_chain.run(user_question)  # ✅ Make sure this is inside the `if user_question:` block
+
+    # ✅ Response exists here now
+    if not response.strip() or any(phrase in response.lower() for phrase in [
+        "i don't know", "not sure", "cannot find", "no information"
+    ]):
+        st.warning("⚠️ Sorry, I can't find that answer within the Symphony.is company information.")
+    else:
+        st.success("✅ Answer:")
+        st.write(response)
 # Convert response to CSV if needed
 try:
     # Example: Assume the response is tabular-like text or key-value pairs
@@ -220,13 +229,4 @@ try:
     )
 except Exception as e:
     st.error(f"⚠ Could not generate CSV: {e}")
-    # ✅ Response exists here now
-    if not response.strip() or any(phrase in response.lower() for phrase in [
-        "i don't know", "not sure", "cannot find", "no information"
-    ]):
-        st.warning("⚠️ Sorry, I can't find that answer within the Symphony.is company information.")
-    else:
-        st.success("✅ Answer:")
-        st.write(response)
-
 
