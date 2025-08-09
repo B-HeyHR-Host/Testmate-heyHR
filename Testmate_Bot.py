@@ -211,47 +211,37 @@ if user_question:
 
         response = qa_chain.run(user_question)  # Ensure response is defined here
 
-        # Debugging - Display the response to check if it's coming through correctly
-        st.write(f"Response: {response}")  # Optional debug to show the response in your app
-
-        # Only attempt to generate CSV if the response is valid
+        # CSV generation (no extra st.write here)
         try:
-            if response and isinstance(response, str):  # Only generate CSV if response is valid
-                # If response is comma-separated values (like tabular data)
+            if response and isinstance(response, str):
                 if "," in response:
-                    # Split into lines and columns
                     data = [row.split(",") for row in response.strip().split("\n")]
                     if len(data) > 1 and len(data[0]) > 1:
-                        # Only treat as multiple columns if there is more than one column
-                        df = pd.DataFrame(data[1:], columns=data[0])  # assuming first row as headers
+                        df = pd.DataFrame(data[1:], columns=data[0])
                     else:
-                        # Treat as single-column if there is only one column
                         df = pd.DataFrame(data, columns=["Result"])
                 else:
-                    # If the response is just a string or non-tabular
                     df = pd.DataFrame({"Result": [response]})
 
-                # Convert DataFrame to CSV
                 csv_data = df.to_csv(index=False).encode("utf-8")
 
-                # Provide a button for download
                 st.download_button(
                     label="📥 Download as CSV",
                     data=csv_data,
                     file_name="query_results.csv",
                     mime="text/csv",
-                    key=f"download_button_{user_question}"  # Unique key for the download button
+                    key=f"download_button_{user_question}"
                 )
-                
+
         except Exception as e:
             st.error(f"⚠ Could not generate CSV: {e}")
 
-        # Show the response in the chat interface
+        # Show the response only once, in the green box
         if not response.strip() or any(p in response.lower() for p in ["i don't know", "not sure", "cannot find", "no information"]):
             st.warning("⚠ Sorry, I can't find that answer within the Symphony.is company information.")
         else:
             st.success("✅ Answer:")
-            st.write(response)  # Display the response only once here
+            st.write(response)
 # Convert response to CSV if needed
 try:
     # Example: Assume the response is tabular-like text or key-value pairs
