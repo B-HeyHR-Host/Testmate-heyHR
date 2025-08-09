@@ -215,39 +215,45 @@ if user_question:
         st.write(f"Response: {response}")  # This will print the response value for debugging
 
         # Now generate the CSV based on the response
-        try:
-            # Check if response is not empty and valid
-            if response and isinstance(response, str):
-                # If response is comma-separated values (like tabular data)
-                if "," in response:
-                    # Split into lines and columns
-                    data = [row.split(",") for row in response.strip().split("\n")]
-                    df = pd.DataFrame(data[1:], columns=data[0])  # assuming first row as headers
-                else:
-                    # If the response is just a string or non-tabular
-                    df = pd.DataFrame({"Result": [response]})
-                
-                # Convert DataFrame to CSV
-                csv_data = df.to_csv(index=False).encode('utf-8')
-
-                # Provide a button for download
-                st.download_button(
-                    label="📥 Download as CSV",
-                    data=csv_data,
-                    file_name="query_results.csv",
-                    mime="text/csv"
-                )
-
+try:
+    # Check if response is not empty and valid
+    if response and isinstance(response, str):
+        # If response is comma-separated values (like tabular data)
+        if "," in response:
+            # Split into lines and columns
+            data = [row.split(",") for row in response.strip().split("\n")]
+            if len(data) > 1 and len(data[0]) > 1:
+                # Only treat as multiple columns if there is more than one column
+                df = pd.DataFrame(data[1:], columns=data[0])  # assuming first row as headers
             else:
-                st.error("⚠ Invalid response for CSV generation.")
+                # Treat as single-column if there is only one column
+                df = pd.DataFrame(data, columns=["Result"])
+
+        else:
+            # If the response is just a string or non-tabular
+            df = pd.DataFrame({"Result": [response]})
         
-        except Exception as e:
-            st.error(f"⚠ Could not generate CSV: {e}")
+        # Convert DataFrame to CSV
+        csv_data = df.to_csv(index=False).encode('utf-8')
+
+        # Provide a button for download
+        st.download_button(
+            label="📥 Download as CSV",
+            data=csv_data,
+            file_name="query_results.csv",
+            mime="text/csv"
+        )
+
+    else:
+        st.error("⚠ Invalid response for CSV generation.")
+    
+except Exception as e:
+    st.error(f"⚠ Could not generate CSV: {e}")
 
         # Show the response in the chat interface
-        if not response.strip() or any(phrase in response.lower() for phrase in ["i don't know", "not sure", "cannot find", "no information"]):
+    if not response.strip() or any(phrase in response.lower() for phrase in ["i don't know", "not sure", "cannot find", "no information"]):
             st.warning("⚠ Sorry, I can't find that answer within the Symphony.is company information.")
-        else:
+    else:
             st.success("✅ Answer:")
             st.write(response)
 # Convert response to CSV if needed
