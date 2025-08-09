@@ -242,35 +242,3 @@ if user_question:
 
             except Exception as e:
                 st.error(f"⚠ Could not generate CSV: {e}")
-
-        # Show the response only once, in the green box
-        if not response.strip() or any(p in response.lower() for p in ["i don't know", "not sure", "cannot find", "no information"]):
-            st.warning("⚠ Sorry, I can't find that answer within the Symphony.is company information.")
-        else:
-            st.success("✅ Answer:")
-            st.write(response)
-# Convert response to CSV if needed
-try:
-    # Example: Assume the response is tabular-like text or key-value pairs
-    if isinstance(response, str) and "," in response:
-        # Split into lines and columns
-        data = [row.split(",") for row in response.strip().split("\n")]
-        df = pd.DataFrame(data[1:], columns=data[0])  # assumes first row is header
-    elif isinstance(response, list):
-        df = pd.DataFrame(response)
-    else:
-        # fallback: single column CSV
-        df = pd.DataFrame({"Result": [response]})
-    
-    csv_data = df.to_csv(index=False).encode('utf-8')
-
-    st.download_button(
-    label="📥 Download as CSV",
-    data=csv_data,
-    file_name="query_results.csv",
-    mime="text/csv",
-    key="download_button_1"  # Add a unique key for the button
-)
-except Exception as e:
-    st.error(f"⚠ Could not generate CSV: {e}")
-
