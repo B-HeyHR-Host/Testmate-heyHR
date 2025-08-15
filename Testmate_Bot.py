@@ -49,7 +49,7 @@ def generate_csv_from_response(response_text):
 # ----------------------
 # 1. Page Setup
 # ----------------------
-st.set_page_config(page_title="heyHR AI", page_icon="✨")
+st.set_page_config(page_title="Continental", page_icon="✨")
 
 # Load OpenAI API key from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
@@ -184,7 +184,7 @@ col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
     st.image(logo, width=500)
-st.markdown("<h2 style='text-align: center;'></h3>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>Continental HR</h3>", unsafe_allow_html=True)
 st.markdown("I am here to help with your queries")
 
 # ----------------------
@@ -240,7 +240,7 @@ if user_question:
 
         # Show the response only once, in the green box
         if not response.strip() or any(p in response.lower() for p in ["i don't know", "not sure", "cannot find", "no information"]):
-            st.warning("⚠ Sorry, I can't find that answer within the Symphony.is company information.")
+            st.warning("⚠ Sorry, I can't find that answer within the company information.")
         else:
             st.success("✅ Answer:")
             st.write(response)
