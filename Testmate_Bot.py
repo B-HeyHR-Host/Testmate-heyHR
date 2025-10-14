@@ -21,31 +21,6 @@ def detect_language(text):
     import re
 import io
 
-def generate_csv_from_response(response_text):
-    # Split into lines
-    lines = response_text.split("\n")
-
-    # Keep only lines that match "something: something"
-    data_lines = [line.strip(" -•") for line in lines if re.search(r".+:\s?.+", line)]
-
-    # Split into two columns if possible
-    rows = []
-    for line in data_lines:
-        if ":" in line:
-            part1, part2 = line.split(":", 1)
-            rows.append([part1.strip(), part2.strip()])
-        else:
-            rows.append([line.strip(), ""])
-
-    # Create DataFrame
-    df = pd.DataFrame(rows, columns=["Category", "Value"])
-
-    # Export CSV to memory
-    csv_buffer = io.StringIO()
-    df.to_csv(csv_buffer, index=False)
-    return csv_buffer.getvalue()
-
-
 # ----------------------
 # 1. Page Setup
 # ----------------------
