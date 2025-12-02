@@ -24,7 +24,7 @@ import io
 # ----------------------
 # 1. Page Setup
 # ----------------------
-st.set_page_config(page_title="Test Company", page_icon="✨")
+st.set_page_config(page_title="Humanio.AI", page_icon="✨")
 
 # Load OpenAI API key from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
@@ -160,7 +160,7 @@ col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.image(logo, width=500)
 st.markdown("<h2 style='text-align: center;'>Test Company</h3>", unsafe_allow_html=True)
-st.markdown("Hi there! I am here to help with your queries..")
+st.markdown("I am here to help with your HR queries")
 
 # ----------------------
 # 2. Load Environment Variables
@@ -182,7 +182,7 @@ else:
     st.stop()
 greek_store = FAISS.load_local("vector_store_gr", embedding, allow_dangerous_deserialization=True)
 
-user_question = st.text_input("Type your query below:")
+user_question = st.text_input("Input query:")
 response = ""   # pre-declare so it's always defined
 
 if user_question:

@@ -1,0 +1,101 @@
+Humanio AI - Demo HR Documents
+
+Hybrid Working Policy
+
+Employees may work remotely up to 3 days per week. Office attendance is
+required for key meetings, collaboration sessions, and monthly team
+days.
+
+Maternity Policy
+
+Eligible employees receive 52 weeks of maternity leave: 26 weeks at
+enhanced pay (12 weeks full pay, 14 weeks half pay) followed by 26 weeks
+statutory. Notification must be provided 15 weeks before the expected
+due date.
+
+Expenses Policy
+
+Employees may claim expenses related to travel, accommodation, meals,
+and work-related purchases. Claims must be submitted within 30 days
+using SAP Concur with receipts attached. Claims are reimbursed within
+the next payroll cycle.
+
+Employee Benefits
+
+Employees are entitled to private medical insurance, pension
+contributions at 6%, 25 days annual leave plus bank holidays, wellbeing
+allowance, and access to the Employee Assistance Programme.
+
+ATS Contract Exit Clause
+
+The contract requires 90 days written notice. Early termination within
+the first 12 months incurs a fee equal to 25% of the remaining annual
+subscription.
+
+Payroll System Contract Payment Terms
+
+Invoices are issued quarterly in advance with 30-day payment terms. Late
+payments may incur a 2% service fee.
+
+HRIS Early Termination
+
+Leaving the HRIS contract early may incur an early-exit fee calculated
+as 30% of the remaining contract value.
+
+Resignation Process
+
+1.  Employee submits resignation in writing.
+2.  Manager acknowledges and informs HR.
+3.  HR processes termination in the HRIS.
+4.  Exit interview scheduled.
+5.  Final payroll and equipment return completed.
+
+Grievance Process
+
+1.  Employee raises grievance in writing to HR.
+2.  HR assigns an investigator.
+3.  Meetings held within 5 working days.
+4.  Outcome communicated in writing.
+5.  Employee may appeal within 7 days.
+
+Recruitment Process
+
+1.  Hiring manager completes recruitment request form.
+2.  HR approves via workflow and posts vacancy.
+3.  Screening and interviews conducted.
+4.  Offer approval submitted to HR.
+5.  Candidate onboarded.
+
+SAP Concur – Submitting an Expense
+
+1.  Log in to SAP Concur.
+2.  Click “Create Expense Report.”
+3.  Add expense types, receipts, and details.
+4.  Submit for approval.
+
+Workday – Delegating Workflows
+
+1.  Navigate to Profile → Actions.
+2.  Select “Manage Delegations.”
+3.  Add a delegate and date range.
+4.  Submit.
+
+Workday – Requesting Feedback
+
+1.  Go to “Feedback” in Workday.
+2.  Select “Request Feedback.”
+3.  Choose recipients and send request.
+
+First Day Information
+
+Employees should arrive at 9:00 AM at the main reception. Ask for the HR
+Coordinator who will provide induction materials and access.
+
+Dress Code
+
+Smart casual is expected in the office. Client-facing meetings may
+require business attire.
+
+Probation Length
+
+Standard probation period is 6 months, with review at 3 and 6 months.
