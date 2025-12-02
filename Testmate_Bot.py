@@ -151,7 +151,19 @@ hide_streamlit_style = """
     </style>
     """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
+# Set full background to black
+black_background = """
+<style>
+.stApp {
+background-color: #000000 !important;
+}
+html, body, [class*="css"] {
+background-color: #000000 !important;
+color: white !important;
+}
+</style>
+"""
+st.markdown(black_background, unsafe_allow_html=True)
 # Display logo
 logo = Image.open("logo.png.png")
 # Create 3 columns: left (1), center (2), right (1)
