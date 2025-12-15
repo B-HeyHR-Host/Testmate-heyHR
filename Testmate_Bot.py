@@ -26,7 +26,7 @@ import io
 # ----------------------
 # Page Setup
 # ----------------------
-st.set_page_config(page_title="Humanio.AI", page_icon="✨")
+st.set_page_config(page_title="Finio AI", page_icon="✨")
 
 # Load OpenAI API key from Streamlit secrets
 openai_api_key = st.secrets["OPENAI_API_KEY"]
@@ -73,7 +73,7 @@ with col2:
 
 
 st.markdown("<h2 style='text-align: center;'></h3>", unsafe_allow_html=True)
-st.markdown("I am here to help with your HR queries")
+st.markdown("I am here to help with your Finance queries")
 
 # ----------------------
 # 2. Load Environment Variables
