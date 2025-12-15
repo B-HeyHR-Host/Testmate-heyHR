@@ -1,4 +1,4 @@
-📄 File 1 — 01_submit_expense_claim.txt
+01_submit_expense_claim.txt
 
 Question: How do I submit an expense claim in the finance system?
 
@@ -11,7 +11,7 @@ Before submitting, ensure the expense complies with the company Expenses Policy,
 Once all required fields are completed, submit the claim for approval. You can track the progress under My Expenses > Submitted Claims. Approved expenses are reimbursed during the next scheduled payroll or payment run.
 
 
-📄 File 2 — 02_raise_purchase_request.txt
+02_raise_purchase_request.txt
 
 Question: How do I raise a purchase request and get it approved?
 
@@ -24,7 +24,7 @@ Once submitted, the system automatically applies approval workflows based on com
 You can track approval progress under My Requests > Pending Approvals. Once fully approved, a Purchase Order (PO) is generated and sent to the supplier.
 
 
-📄 File 3 — 03_check_invoice_status.txt
+03_check_invoice_status.txt
 
 Question: How do I check if my invoice has been paid?
 
@@ -45,7 +45,7 @@ If the invoice is marked as Paid, the payment date and reference number will be 
 If an invoice is on hold, the system may display a reason such as missing information, PO mismatch, or approval delay.
 
 
-📄 File 4 — 04_create_journal_entry.txt
+04_create_journal_entry.txt
 
 Question: How do I create or post a journal entry?
 
@@ -58,7 +58,7 @@ Once completed, submit the journal. Depending on finance controls, the journal m
 If an error is identified after posting, a reversal or correcting journal must be raised in line with audit requirements.
 
 
-📄 File 5 — 05_view_payslip.txt
+05_view_payslip.txt
 
 Question: Where do I find my payslip and payroll details?
 
@@ -69,7 +69,7 @@ Your payslip shows gross pay, deductions such as tax, national insurance, pensio
 If your net pay has changed compared to previous months, this may be due to tax code changes, benefit deductions, unpaid leave, or variable earnings.
 
 
-📄 File 6 — 06_expenses_policy.txt
+06_expenses_policy.txt
 
 Question: What is the expenses policy and what can I claim?
 
@@ -80,7 +80,7 @@ Employees may claim reasonable business-related expenses such as travel, accommo
 Non-allowable expenses include personal purchases, fines, penalties, and unapproved upgrades. Expenses submitted outside policy limits may be rejected or require additional justification.
 
 
-📄 File 7 — 07_supplier_setup.txt
+07_supplier_setup.txt
 
 Question: How do I set up a new supplier in the system?
 
@@ -91,7 +91,7 @@ Complete the supplier form with legal entity name, address, bank details, tax in
 Once approved, the supplier becomes available for use in purchase requests and invoices.
 
 
-📄 File 8 — 08_budget_check.txt
+08_budget_check.txt
 
 Question: How do I check my department’s budget and remaining spend?
 
@@ -102,7 +102,7 @@ The report displays allocated budget, actual spend, committed spend, and remaini
 This report helps managers track spending and forecast future costs.
 
 
-📄 File 9 — 09_approval_limits.txt
+09_approval_limits.txt
 
 Question: What are the approval limits and who approves finance requests?
 
@@ -113,7 +113,7 @@ Approval levels depend on transaction value, cost centre, and request type. Line
 The system automatically applies these rules during submission.
 
 
-📄 File 10 — 10_correct_transaction.txt
+10_correct_transaction.txt
 
 Question: How do I correct a finance transaction or expense submitted incorrectly?
 
