@@ -60,7 +60,7 @@ with col2:
         st.image("logo.png.png", width=500)
 
 st.markdown(
-    "<h2 style='text-align:center;'>I am here to help with your Finance queries</h2>",
+    "<h5 style='text-align:center;'>I am here to help with your Finance queries</h5>",
     unsafe_allow_html=True
 )
 
