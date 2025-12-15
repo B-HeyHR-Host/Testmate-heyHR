@@ -123,13 +123,12 @@ st.markdown(
 # Build vector stores (your folders)
 # ----------------------------
 EN_FOLDER = "docs/en"
-GR_FOLDER = "docs/gr"
 
-english_store = build_vectorstore(EN_FOLDER)
-greek_store = build_vectorstore(GR_FOLDER)
 
-if english_store is None and greek_store is None:
-    st.warning(f"No documents found. Add .txt/.pdf files to {EN_FOLDER} and/or {GR_FOLDER}.")
+vectorstore = build_vectorstore(EN_FOLDER)
+
+if vectorstore is None:
+    st.warning(f"No documents found. Add .txt/.pdf files to {EN_FOLDER}.")
     st.stop()
 
 
