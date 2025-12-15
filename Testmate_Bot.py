@@ -68,7 +68,8 @@ logo_path = Path("logo.png.png")
 col1, col2, col3 = st.columns([1, 2, 1])
 
 with col2:
-st.image("logo.png.png", width=500)
+    st.image("logo.png.png", width=500)
+
 
 
 st.markdown("<h2 style='text-align: center;'></h3>", unsafe_allow_html=True)
