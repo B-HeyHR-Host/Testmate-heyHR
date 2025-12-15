@@ -66,7 +66,7 @@ st.markdown(
 
 
 # ----------------------------
-# Load Documents
+# Document Loading
 # ----------------------------
 def load_documents_from_folder(folder: Path):
     docs = []
@@ -74,16 +74,19 @@ def load_documents_from_folder(folder: Path):
     if not folder.exists():
         return docs
 
-    # TXT files
+    # TXT
     for p in folder.rglob("*.txt"):
+        # Skip temp/lock files
         if p.name.startswith("~$"):
             continue
+
         try:
             docs.extend(TextLoader(str(p), encoding="utf-8").load())
         except Exception:
+            # Fallback encoding
             docs.extend(TextLoader(str(p), encoding="latin-1").load())
 
-    # PDF files
+    # PDF
     for p in folder.rglob("*.pdf"):
         docs.extend(PyPDFLoader(str(p)).load())
 
@@ -94,39 +97,46 @@ def load_documents_from_folder(folder: Path):
 def build_vectorstore(folder_str: str):
     folder = Path(folder_str)
     documents = load_documents_from_folder(folder)
+
+    # If files exist but no docs loaded, give a clear message
     if not documents:
         return None
 
-    splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000,
+        chunk_overlap=150
+    )
     chunks = splitter.split_documents(documents)
 
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
     return FAISS.from_documents(chunks, embeddings)
 
 
-# ✅ Use absolute path so Streamlit Cloud always finds docs
+# Use absolute path so Streamlit Cloud always finds docs
 BASE_DIR = Path(__file__).resolve().parent
 EN_FOLDER = BASE_DIR / "docs" / "en"
 
+# Basic folder/file existence checks
+if not EN_FOLDER.exists():
+    st.error(f"Docs folder not found: {EN_FOLDER}")
+    st.stop()
 
-# ----------------------------
-# Debug (shows what Streamlit can actually see)
-# ----------------------------
-# You can delete this once it works
-st.write("Docs folder:", str(EN_FOLDER))
-st.write("Docs folder exists:", EN_FOLDER.exists())
-if EN_FOLDER.exists():
-    st.write("Files found:", [p.name for p in EN_FOLDER.rglob("*")])
-
+found_files = [p for p in EN_FOLDER.rglob("*") if p.is_file()]
+if not found_files:
+    st.warning("No documents found. Add .txt/.pdf files to docs/en.")
+    st.stop()
 
 vectorstore = build_vectorstore(str(EN_FOLDER))
 if vectorstore is None:
-    st.warning(f"No documents found. Add .txt/.pdf files to {EN_FOLDER}.")
+    st.warning(
+        "I can see files in docs/en, but none could be loaded. "
+        "Make sure your .txt files are plain text (UTF-8) and not empty."
+    )
     st.stop()
 
 
 # ----------------------------
-# Strict Prompt
+# Prompt (Strict: answer from docs only)
 # ----------------------------
 STRICT_PROMPT = PromptTemplate(
     input_variables=["context", "question"],
@@ -150,15 +160,21 @@ user_question = st.text_input("Input query:")
 
 if user_question:
     with st.spinner("Analysing..."):
-        retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 6})
+        retriever = vectorstore.as_retriever(
+            search_type="similarity",
+            search_kwargs={"k": 6}
+        )
 
-        llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+        llm = ChatOpenAI(
+            model="gpt-4o-mini",
+            temperature=0
+        )
 
         qa_chain = RetrievalQA.from_chain_type(
             llm=llm,
             retriever=retriever,
             return_source_documents=False,
-            chain_type_kwargs={"prompt": STRICT_PROMPT},
+            chain_type_kwargs={"prompt": STRICT_PROMPT}
         )
 
         response = qa_chain.run(user_question)
@@ -168,4 +184,3 @@ if user_question:
         st.write(response)
     else:
         st.warning("⚠️ Sorry, I can't find that answer within the company information.")
-
