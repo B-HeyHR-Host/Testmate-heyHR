@@ -2,7 +2,7 @@ import os
 import streamlit as st
 import pandas as pd
 from PIL import Image
-from langchain_community.vectorstores import FAISS
+from langchain.vectorstores import FAISS
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
