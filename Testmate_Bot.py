@@ -8,7 +8,6 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_community.document_loaders import TextLoader, PyPDFLoader
 from langchain_core.documents import Document
-from langchain.text_splitter import CharacterTextSplitter
 from langdetect import detect
 
 def detect_language(text):
