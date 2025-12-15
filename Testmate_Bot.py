@@ -117,8 +117,9 @@ with col2:
 # ----------------------------
 # Build stores (cached)
 # ----------------------------
-english_store = build_vectorstore("docs/english")
-greek_store = build_vectorstore("docs/greek")
+english_store = build_vectorstore("docs/en")
+greek_store = build_vectorstore("docs/gr")
+
 
 if english_store is None and greek_store is None:
     st.warning("No documents found. Add .txt/.pdf files to docs/english and/or docs/greek.")
