@@ -7,3 +7,4 @@ pypdf
 langdetect
 tiktoken
 python-dotenv
+langchain-text-splitters==0.2.4
