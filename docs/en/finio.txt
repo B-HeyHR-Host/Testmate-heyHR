@@ -1,0 +1,9 @@
+Expense Claims – Finance System
+
+To submit an expense claim, log into the finance system and navigate to Expenses > Create New Claim.
+
+Select the appropriate expense category, enter the transaction date and amount, and upload a valid receipt.
+
+Once submitted, the expense claim is routed for approval. After approval, reimbursement is processed in the next scheduled payroll or payment run.
+
+You can track the status of your expense claim under My Expenses > Submitted Claims.
