@@ -88,11 +88,12 @@ response = ""   # pre-declare so it's always defined
 if user_question:
     with st.spinner("Analysing..."):
         lang = detect_language(user_question)
-        retriever = VectorStoreRetriever(
-            vectorstore=greek_store if lang == "el" else english_store
-        )
+    retriever = vectorstore.as_retriever(
+    search_type="similarity",
+    search_kwargs={"k": 4}
+)
 
-        qa_chain = RetrievalQA.from_chain_type(
+    qa_chain = RetrievalQA.from_chain_type(
             llm=ChatOpenAI(),
             retriever=retriever,
             return_source_documents=False
