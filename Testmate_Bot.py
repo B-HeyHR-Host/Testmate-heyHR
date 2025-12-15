@@ -39,10 +39,6 @@ html, body, [class*="css"] {
 """
 st.markdown(black_background, unsafe_allow_html=True)
 
-if st.button("🔄 Rebuild Knowledge Base"):
-    st.cache_resource.clear()
-    st.rerun()
-
 
 # ----------------------------
 # OpenAI API Key
