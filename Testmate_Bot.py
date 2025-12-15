@@ -47,18 +47,18 @@ hide_streamlit_style = """
     """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-white_background = """
+black_background = """
 <style>
 .stApp {
-    background-color: #ffffff !important;
+background-color: #000000 !important;
 }
 html, body, [class*="css"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
+background-color: #000000 !important;
+color: white !important;
 }
 </style>
 """
-st.markdown(white_background, unsafe_allow_html=True)
+st.markdown(black_background, unsafe_allow_html=True)
 
 # ----------------------
 # Header / Logo
