@@ -29,7 +29,6 @@ os.environ["OPENAI_API_KEY"] = openai_api_key
 # ----------------------------------
 # 2. Load and Embed All Documents
 # ----------------------------------
-from langchain.document_loaders import PyPDFLoader
 from langchain.vectorstores import FAISS
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
