@@ -122,10 +122,19 @@ st.markdown(
 # ----------------------------
 # Build vector stores (your folders)
 # ----------------------------
-EN_FOLDER = "docs/en"
+
+st.write("BASE_DIR:", str(BASE_DIR))
+st.write("EN_FOLDER exists:", EN_FOLDER.exists(), "->", str(EN_FOLDER))
+
+if EN_FOLDER.exists():
+    st.write("Files in docs/en:", [p.name for p in EN_FOLDER.rglob("*")])
+
+BASE_DIR = Path(__file__).resolve().parent
+EN_FOLDER = BASE_DIR / "docs" / "en"
 
 
-vectorstore = build_vectorstore(EN_FOLDER)
+vectorstore = build_vectorstore(str(EN_FOLDER))
+
 
 if vectorstore is None:
     st.warning(f"No documents found. Add .txt/.pdf files to {EN_FOLDER}.")
