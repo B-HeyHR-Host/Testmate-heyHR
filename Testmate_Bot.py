@@ -2,9 +2,8 @@ import os
 import streamlit as st
 import pandas as pd
 from PIL import Image
-from langchain.vectorstores import FAISS
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.llms import OpenAI
+from langchain_community.vectorstores import FAISS
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.vectorstores.base import VectorStoreRetriever
