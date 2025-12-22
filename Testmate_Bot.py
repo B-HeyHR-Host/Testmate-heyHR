@@ -125,6 +125,7 @@ if not found_files:
     st.warning("No documents found. Add .txt/.pdf files to docs/en.")
     st.stop()
 
+DEBUG = False # set True only when troubleshooting
     # Show what files Streamlit can actually see
 st.write("📂 Docs folder:", EN_FOLDER)
 st.write("🗂️ Found files:", [str(p) for p in found_files])
