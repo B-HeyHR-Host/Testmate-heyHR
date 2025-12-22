@@ -3,6 +3,8 @@ from pathlib import Path
 
 import streamlit as st
 
+DEBUG = False 
+
 from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import TextLoader, PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -126,19 +128,21 @@ if not found_files:
     st.stop()
 
 DEBUG = False # set True only when troubleshooting
-    # Show what files Streamlit can actually see
-st.write("📂 Docs folder:", EN_FOLDER)
-st.write("🗂️ Found files:", [str(p) for p in found_files])
 
-# Load docs once (NOT cached) just to debug
-debug_docs = load_documents_from_folder(EN_FOLDER)
-st.write("📄 Doc count (loaded):", len(debug_docs))
+DEBUG = False  # set True only when troubleshooting
 
-if debug_docs:
-    st.write("🧪 First doc preview:")
-    st.write(debug_docs[0].page_content[:500])
-else:
-    st.error("❌ Files exist, but ZERO docs loaded. (Encoding or loader issue)")
+if DEBUG:
+    st.write("📂 Docs folder:", EN_FOLDER)
+    st.write("🗂️ Found files:", [str(p) for p in found_files])
+
+    debug_docs = load_documents_from_folder(EN_FOLDER)
+    st.write("📄 Doc count (loaded):", len(debug_docs))
+
+    if debug_docs:
+        st.write("🧪 First doc preview:")
+        st.write(debug_docs[0].page_content[:500])
+    else:
+        st.error("❌ Files exist, but ZERO docs loaded. (Encoding or loader issue)")
 
 vectorstore = build_vectorstore(str(EN_FOLDER))
 if vectorstore is None:
