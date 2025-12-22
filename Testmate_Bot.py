@@ -93,7 +93,6 @@ def load_documents_from_folder(folder: Path):
     return docs
 
 
-@st.cache_resource
 def build_vectorstore(folder_str: str):
     folder = Path(folder_str)
     documents = load_documents_from_folder(folder)
@@ -126,6 +125,20 @@ if not found_files:
     st.warning("No documents found. Add .txt/.pdf files to docs/en.")
     st.stop()
 
+    # Show what files Streamlit can actually see
+st.write("📂 Docs folder:", EN_FOLDER)
+st.write("🗂️ Found files:", [str(p) for p in found_files])
+
+# Load docs once (NOT cached) just to debug
+debug_docs = load_documents_from_folder(EN_FOLDER)
+st.write("📄 Doc count (loaded):", len(debug_docs))
+
+if debug_docs:
+    st.write("🧪 First doc preview:")
+    st.write(debug_docs[0].page_content[:500])
+else:
+    st.error("❌ Files exist, but ZERO docs loaded. (Encoding or loader issue)")
+
 vectorstore = build_vectorstore(str(EN_FOLDER))
 if vectorstore is None:
     st.warning(
@@ -133,7 +146,6 @@ if vectorstore is None:
         "Make sure your .txt files are plain text (UTF-8) and not empty."
     )
     st.stop()
-
 
 # ----------------------------
 # Prompt (Strict: answer from docs only)
